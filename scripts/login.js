@@ -7,7 +7,7 @@ async function login(name, password) {
     const response = await fetch('https://ubuntu-server.tail818fdd.ts.net/api/app/login', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ username: name, password: password, app: 'web' }),
+        body: JSON.stringify({ username: name, password: password, app: 'website' }),
     });
     const data = await response.json();
     console.log(data);
