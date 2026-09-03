@@ -1,0 +1,119 @@
+.site {
+    background-color: #191a1b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.loginForm {
+    background-color: #2c2f33;
+    padding: 0px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 350px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formTitle {
+    color: #ffffff;
+    font-size: 24px;
+    margin-bottom: auto;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.userNameInput {
+    width: 70%;
+    height: 8%;
+    background-color: #40444b;
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box; 
+    padding: 10px;
+    color: #ffffff;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 14px;
+    transition: border 0.3s ease;
+    outline: none;
+    border: 2px solid transparent; 
+}
+
+.userNameInput::placeholder {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #b9bbbe;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.userNameInput:focus::placeholder{
+    color: transparent;
+}
+
+.userNameInput:focus {
+    border-color: #68696b; 
+}
+
+.passwordInput {
+    width: 70%;
+    height: 8%;
+    background-color: #40444b;
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box; 
+    padding: 10px;
+    color: #ffffff;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 14px;
+    transition: border 0.3s ease;
+    outline: none;
+    border: 2px solid transparent; 
+}
+
+.passwordInput::placeholder {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #b9bbbe;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.passwordInput:focus::placeholder{
+    color: transparent;
+}
+
+.passwordInput:focus {
+    border-color: #68696b; 
+}
+
+.loginButton {
+    width: 70%;
+    height: 8%;
+    background-color: #7289da;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 30%;
+}
+
+.loginButton:hover {
+    background-color: #5b6eae;
+}
+
+.loginButton:active {
+    background-color: #4a5b8c;
+}
+
+.errorLabel {
+    color: #ff0000;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+    margin-top: 10px;
+}
