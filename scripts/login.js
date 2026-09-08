@@ -2,6 +2,12 @@ const usernameInput = document.getElementById('username');
 const passwordInput = document.getElementById('password');
 const loginButton = document.getElementById('loginButton');
 const errorLabel = document.getElementById('errorLabel');
+const loginStatus = localStorage.getItem('loginStatus');
+
+if (loginStatus === 'true') {
+    window.location.href = '/dashboard';
+}
+
 
 async function login(name, password) {
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/login', {
