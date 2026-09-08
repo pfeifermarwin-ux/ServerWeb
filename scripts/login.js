@@ -4,10 +4,10 @@ const loginButton = document.getElementById('loginButton');
 const errorLabel = document.getElementById('errorLabel');
 
 async function login(name, password) {
-    const response = await fetch('https://ubuntu-server.tail818fdd.ts.net/api/app/login', {
+    const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/login', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ username: name, password: password, app: 'website' }),
+        body: JSON.stringify({ username: name, password: password}),
     });
     const data = await response.json();
     console.log(data);
