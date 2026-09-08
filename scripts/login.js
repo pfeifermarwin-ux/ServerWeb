@@ -10,7 +10,17 @@ async function login(name, password) {
         body: JSON.stringify({ username: name, password: password}),
     });
     const data = await response.json();
-    console.log(data);
+    if (data.status === 'success'){
+        localStorage.setItem('loginStatus', 'true');
+        localStorage.setItem('username', name);
+        localStorage.setItem('token', data.token);
+        window.location.href = '/dashboard';
+    } else {
+        errorLabel.textContent = data.message;
+        usernameInput.style.borderColor = 'red';
+        passwordInput.style.borderColor = 'red';
+        usernameInput.focus();
+    }
 };
 
 loginButton.addEventListener('click', () => {
