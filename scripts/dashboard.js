@@ -21,7 +21,7 @@ async function checkTokenValidity() {
 }
 
 if (loginStatus === 'true') {
-    alert('Login true');
+    checkTokenValidity();
 }else {
     window.location.href = '/login';
 }
