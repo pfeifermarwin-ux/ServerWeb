@@ -26,7 +26,7 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    background-color: yellow;
+    background-color: #2c2f33;
 }
 
 .viewDiv{
@@ -54,7 +54,6 @@
 }
 
 .viewTwoDiv{
-    background-color: purple;
     width: 100%;
     height: 100%;
     display: flex;
@@ -62,15 +61,15 @@
 }
 
 .greatingDiv{
-    background-color: aqua;
+    background-color: #2c2f33;
     height: 10%;
     margin-top: 1%;
     margin-left: 1%;
     margin-right: 1%;
+    border-radius: 5px;
 }
 
 .mainPageDiv{
-    background-color: coral;
     height: 100%;
     width: 100%;
     display: flex;
@@ -95,7 +94,7 @@
     border-radius: 5px;
     display: flex;
     flex-direction: row;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .siteBarProgramsBTN{
@@ -107,7 +106,7 @@
     border-radius: 5px;
     display: flex;
     flex-direction: row;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .siteBarProgramsBTN:hover{
@@ -123,7 +122,7 @@
     border-radius: 5px;
     display: flex;
     flex-direction: row;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .siteBarWebAppsBTN:hover{
@@ -139,7 +138,7 @@
     border-radius: 5px;
     display: flex;
     flex-direction: row;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .siteBarUserBTN:hover{
@@ -155,7 +154,7 @@
     border-radius: 5px;
     display: flex;
     flex-direction: row;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .siteBarSystemBTN:hover{
@@ -251,4 +250,72 @@
     text-align: center;
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: #ffffff;
+}
+
+.searchBar{
+    height: 60%;
+    width: 60%;
+    border-radius: 5px;
+    border: 2px solid transparent; 
+    margin-left: 1%;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: #3b424b;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    outline: none;
+    font-size: 14px;
+    padding: 10px;
+    transition: border 0.3s ease;
+}
+
+.searchBar::placeholder{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #b9bbbe;
+    font-size: 14px;
+    padding: 5px;
+    transition: border 0.3s ease;
+}
+
+.searchBar:focus::placeholder{
+    color: transparent;
+}
+
+.searchBar:focus {
+    border-color: #68696b; 
+}
+
+.notificationBTN{
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    width: 4%;
+}
+
+.notificationBTNIcon{
+    filter: brightness(0) invert(1);
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.userBTN{
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    border: none;
+    width: 15%;
+}
+
+.userNameText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+}
+
+.greatingTitle{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    margin-left: 2%;
+    text-align: center;
+    margin-right: 95%;
+    margin-bottom: auto;
 }
