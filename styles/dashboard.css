@@ -1,0 +1,254 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 15%;
+    background-color: #2c2f33;
+}
+
+.logoDiv{
+    display: flex;
+    flex-direction: row;
+    height: 5%;
+}
+
+.logo{
+    height: 30px;
+    width: 30px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    border-radius: 5px;
+}
+
+.navbar{
+    height: 5%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: yellow;
+}
+
+.viewDiv{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.site{
+    padding: 0;
+    margin: 0;
+    background-color: #191a1b;
+}
+
+.siteBarSpace{
+    height: 100%;
+}
+
+.siteBarHR{
+    width: 90%;
+}
+
+.navbarSpacer{
+    width: 100%;
+}
+
+.viewTwoDiv{
+    background-color: purple;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.greatingDiv{
+    background-color: aqua;
+    height: 10%;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.mainPageDiv{
+    background-color: coral;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.titleText{
+    text-align: center;
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-left: 4%;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+}
+
+.siteBarOverviewBTN{
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 5%;
+    border: transparent;
+    background-color: #7289dab7;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    transition: all 0.3s;
+}
+
+.siteBarProgramsBTN{
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 5%;
+    background-color: transparent;
+    border: transparent;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    transition: all 0.3s;
+}
+
+.siteBarProgramsBTN:hover{
+    background-color: #5d616657;
+}
+
+.siteBarWebAppsBTN{
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 5%;
+    background-color: transparent;
+    border: transparent;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    transition: all 0.3s;
+}
+
+.siteBarWebAppsBTN:hover{
+    background-color: #5d616657;
+}
+
+.siteBarUserBTN{
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 5%;
+    background-color: transparent;
+    border: transparent;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    transition: all 0.3s;
+}
+
+.siteBarUserBTN:hover{
+    background-color: #5d616657;
+}
+
+.siteBarSystemBTN{
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 5%;
+    background-color: transparent;
+    border: transparent;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    transition: all 0.3s;
+}
+
+.siteBarSystemBTN:hover{
+    background-color: #5d616657;
+}
+
+.siteBarOverviewBTNIcon{
+    height: 50%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    filter: brightness(0) invert(1);
+}
+
+.siteBarProgramsBTNIcon{
+    height: 50%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    filter: brightness(0) invert(1);
+}
+
+.siteBarWebAppsBTNIcon{
+    height: 50%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    filter: brightness(0) invert(1);
+}
+
+.siteBarUserBTNIcon{
+    height: 50%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    filter: brightness(0) invert(1);
+}
+
+.siteBarSystemBTNIcon{
+    height: 50%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    filter: brightness(0) invert(1);
+}
+
+.siteBarOverviewBTNText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    text-align: center;
+}
+
+.siteBarProgramsBTNText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    text-align: center;
+}
+
+.siteBarWebAppsBTNText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    text-align: center;
+}
+
+.siteBarUserBTNText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    text-align: center;
+}
+
+.siteBarSystemBTNText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    text-align: center;
+}
+
+.siteBarVersionText{
+    text-align: center;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+}
