@@ -37,6 +37,7 @@ registerButton.addEventListener('click', () => {
         passwordInput.focus();
         passwordInput.style.borderColor = 'red';
     }else {
+        register(usernameInput, passwordInput)
     }
 });
 
