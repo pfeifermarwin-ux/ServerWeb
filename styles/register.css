@@ -89,28 +89,6 @@
     border-color: #68696b; 
 }
 
-.loginButton {
-    width: 70%;
-    height: 8%;
-    background-color: #7289da;
-    border: none;
-    border-radius: 10px;
-    color: #ffffff;
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-bottom: 5%;
-}
-
-.loginButton:hover {
-    background-color: #5b6eae;
-}
-
-.loginButton:active {
-    background-color: #4a5b8c;
-}
-
 .errorLabel {
     color: #ff0000;
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -129,7 +107,7 @@
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-bottom: 30%;
+    margin-bottom: 5%;
 }
 
 .registerButton:hover {
@@ -137,5 +115,27 @@
 }
 
 .registerButton:active {
+    background-color: #4a5b8c;
+}
+
+.loginButton {
+    width: 70%;
+    height: 8%;
+    background-color: #7289da;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 30%;
+}
+
+.loginButton:hover {
+    background-color: #5b6eae;
+}
+
+.loginButton:active {
     background-color: #4a5b8c;
 }

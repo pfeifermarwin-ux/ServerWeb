@@ -2,26 +2,18 @@ const usernameInput = document.getElementById('username');
 const passwordInput = document.getElementById('password');
 const loginButton = document.getElementById('loginButton');
 const errorLabel = document.getElementById('errorLabel');
-const loginStatus = localStorage.getItem('loginStatus');
 const registerButton = document.getElementById('registerButton')
 
-if (loginStatus === 'true') {
-    window.location.href = '/dashboard';
-}
-
-
-async function login(name, password) {
-    const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/login', {
+async function register(name, password) {
+    const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/register', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ username: name, password: password}),
     });
     const data = await response.json();
     if (data.status === 'success'){
-        localStorage.setItem('loginStatus', 'true');
-        localStorage.setItem('username', name);
-        localStorage.setItem('token', data.token);
-        window.location.href = '/dashboard';
+        alert(data.message)
+        window.location.href = '/login'
     } else {
         errorLabel.textContent = data.message;
         usernameInput.style.borderColor = 'red';
@@ -30,7 +22,7 @@ async function login(name, password) {
     }
 };
 
-loginButton.addEventListener('click', () => {
+registerButton.addEventListener('click', () => {
     if (usernameInput.value === '' && passwordInput.value === '') {
         errorLabel.textContent = 'Please enter a username and password.';
         usernameInput.style.borderColor = 'red';
@@ -45,12 +37,11 @@ loginButton.addEventListener('click', () => {
         passwordInput.focus();
         passwordInput.style.borderColor = 'red';
     }else {
-        login(usernameInput.value, passwordInput.value);
     }
 });
 
-registerButton.addEventListener('click', () => {
-    window.location.href = '/register'
+loginButton.addEventListener('click', () => {
+    window.location.href = '/login'
 });
 
 passwordInput.addEventListener('keypress', () => {
