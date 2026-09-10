@@ -20,6 +20,7 @@ async function register(name, password) {
         passwordInput.style.borderColor = 'red';
         usernameInput.focus();
     }
+    console.log(data)
 };
 
 registerButton.addEventListener('click', () => {
