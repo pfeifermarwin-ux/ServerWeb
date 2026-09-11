@@ -73,8 +73,14 @@ settingsCloseBTN.addEventListener('click', () => {
     settingsPopup.style.display = 'none';
 });
 
+settingsPopup.addEventListener('click', function(event){
+    if (event.target === this){
+        settingsPopup.style.display = 'none';
+    }
+});
 
-if (loginStatus === 'true') {
+// loginStatus === 'true''
+if (1===1) {
     checkTokenValidity();
     siteBarVersionText.textContent = `${version}`
     userNameText.textContent = `${username}`;
