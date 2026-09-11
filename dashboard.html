@@ -18,7 +18,7 @@
             <button class="siteBarProgramsBTN"><img src="assets/download.svg" alt="programsIcon" class="siteBarProgramsBTNIcon"><p class="siteBarProgramsBTNText">Programs</p></button>
             <button class="siteBarWebAppsBTN"><img src="assets/globe.svg" alt="webAppIcon" class="siteBarWebAppsBTNIcon"><p class="siteBarWebAppsBTNText">Web Apps</p></button>
             <button class="siteBarUserBTN"><img src="assets/people-fill.svg" alt="userIcon" class="siteBarUserBTNIcon"><p class="siteBarUserBTNText">User</p></button>
-            <button class="siteBarSystemBTN"><img src="assets/gear-fill.svg" alt="systemIcon" class="siteBarSystemBTNIcon"><p class="siteBarSystemBTNText">System</p></button>
+            <button class="siteBarSystemBTN", id="settingsButton"><img src="assets/gear-fill.svg" alt="systemIcon" class="siteBarSystemBTNIcon"><p class="siteBarSystemBTNText">Settings</p></button>
             <hr class="siteBarHR">
             <p>Admin btn</p>
             <div class="siteBarSpace"></div>
@@ -32,7 +32,7 @@
                 <button class="userBTN" id="userBTN"><img src="" alt=""><p class="userNameText" id="userNameText"></p></button>
                 <div class="dropdown", id="dropdown">
                     <button class="dropdownProfileBTN"><img src="assets/person-fill.svg" alt="" class="dropdownProfileIcon"><p class="dropdownProfileBTNText">Profile</p></button>
-                    <button class="dropdownSettingsBTN"><img src="assets/gear-fill.svg" alt="" class="dropdownSettingsIcon"><p class="dropdownSettingsBTNText">Settings</p></button>
+                    <button class="dropdownSettingsBTN" id="settingsButtonDropdown"><img src="assets/gear-fill.svg" alt="" class="dropdownSettingsIcon"><p class="dropdownSettingsBTNText">Settings</p></button>
                     <button class="dropdownAdminBTN"><img src="assets/shield-shaded.svg" alt="" class="dropdownAdminIcon"><p class="dropdownAdminBTNText">Admin</p></button>
                     <button class="dropdownLogoutBTN" id="logoutBTN"><img src="assets/box-arrow-right.svg" alt="" class="dropdownLogoutIcon"><p class="dropdownLogoutBTNText">Logout</p></button>
                 </div>
@@ -45,6 +45,16 @@
             </div>
         </div>
         
+    </div>
+    <div class="overlay" id="settingsPopup">
+        <div class="popup">
+            <div class="popupSitebar">
+                <button class="settingsAccountBTN"><img src="" alt=""><p>Account</p></button>
+            </div>
+            <div class="popupScreen">
+                <button class="settingsCloseBTN", id="settingsCloseBTN"><img src="assets/x.svg" alt="" class="settingsCloseIcon"></button>
+            </div>
+        </div>
     </div>
 </body>
 </html>

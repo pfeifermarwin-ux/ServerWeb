@@ -8,6 +8,10 @@ const siteBarVersionText = document.getElementById('siteBarVersionText')
 const profileBTN = document.getElementById('userBTN')
 const dropdown = document.getElementById('dropdown')
 const logoutBTN = document.getElementById('logoutBTN')
+const settingsButton = document.getElementById('settingsButton')
+const settingsPopup = document.getElementById('settingsPopup')
+const settingsButtonDropdown = document.getElementById('settingsButtonDropdown')
+const settingsCloseBTN = document.getElementById('settingsCloseBTN')
 
 async function checkTokenValidity() {
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/check_token', {
@@ -57,12 +61,24 @@ logoutBTN.addEventListener('click', () => {
     logout()
 });
 
-// loginStatus === 'true'
-if (1===1) {
-    // checkTokenValidity();
+settingsButton.addEventListener('click', () => {
+    settingsPopup.style.display = 'flex';
+});
+
+settingsButtonDropdown.addEventListener('click', () => {
+    settingsPopup.style.display = 'flex';
+});
+
+settingsCloseBTN.addEventListener('click', () => {
+    settingsPopup.style.display = 'none';
+});
+
+
+if (loginStatus === 'true') {
+    checkTokenValidity();
     siteBarVersionText.textContent = `${version}`
     userNameText.textContent = `${username}`;
     greatingTitle.textContent = `Hello, ${username}`;
 }else {
-    // window.location.href = '/login';
+    window.location.href = '/login';
 };
