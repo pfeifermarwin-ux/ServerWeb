@@ -4,14 +4,15 @@ const token = localStorage.getItem('token');
 const version = localStorage.getItem('version');
 const userNameText = document.getElementById('userNameText');
 const greatingTitle = document.getElementById('greatingTitle');
-const siteBarVersionText = document.getElementById('siteBarVersionText')
-const profileBTN = document.getElementById('userBTN')
-const dropdown = document.getElementById('dropdown')
-const logoutBTN = document.getElementById('logoutBTN')
-const settingsButton = document.getElementById('settingsButton')
-const settingsPopup = document.getElementById('settingsPopup')
-const settingsButtonDropdown = document.getElementById('settingsButtonDropdown')
-const settingsCloseBTN = document.getElementById('settingsCloseBTN')
+const siteBarVersionText = document.getElementById('siteBarVersionText');
+const profileBTN = document.getElementById('userBTN');
+const dropdown = document.getElementById('dropdown');
+const logoutBTN = document.getElementById('logoutBTN');
+const settingsButton = document.getElementById('settingsButton');
+const settingsPopup = document.getElementById('settingsPopup');
+const settingsButtonDropdown = document.getElementById('settingsButtonDropdown');
+const settingsCloseBTN = document.getElementById('settingsCloseBTN');
+const site = document.getElementById('site');
 
 async function checkTokenValidity() {
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/check_token', {
@@ -29,7 +30,7 @@ async function checkTokenValidity() {
         localStorage.removeItem('token');
         window.location.href = '/login';
     }
-}
+};
 
 async function logout() {
     const respone = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/logout', {
@@ -47,7 +48,7 @@ async function logout() {
         alert('Error at Logout')
         console.log(data)
     }
-}
+};
 
 function toggleDropdown() {
     dropdown.classList.toggle("show");
@@ -77,6 +78,12 @@ settingsPopup.addEventListener('click', function(event){
     if (event.target === this){
         settingsPopup.style.display = 'none';
     }
+});
+
+site.addEventListener('click', function(event){
+    if (!dropdown.contains(event.target) && !profileBTN.contains(event.target)){
+        dropdown.classList.remove("show");
+    };
 });
 
 // loginStatus === 'true''
