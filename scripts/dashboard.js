@@ -13,6 +13,12 @@ const settingsPopup = document.getElementById('settingsPopup');
 const settingsButtonDropdown = document.getElementById('settingsButtonDropdown');
 const settingsCloseBTN = document.getElementById('settingsCloseBTN');
 const site = document.getElementById('site');
+const notification = document.getElementById('notification');
+const notificationTitle = document.getElementById('notificationTitle');
+const notificationMessage = document.getElementById('notificationMessage');
+const notificationCloseBTN = document.getElementById('notificationCloseBTN');
+const notificationCloseBTN2 = document.getElementById('notificationCloseBTN2');
+
 
 async function checkTokenValidity() {
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/check_token', {
@@ -21,10 +27,10 @@ async function checkTokenValidity() {
         body: JSON.stringify({ username: username, token: token}),
     });
     const data = await response.json();
-    if (data.status === 'success'){
+    if (response.status){
         localStorage.setItem('loginStatus', 'true');
     }else {
-        alert('Token is invalid. Please log in again.');
+        openNotification(response.status,response)
         localStorage.setItem('loginStatus', 'false');
         localStorage.removeItem('username');
         localStorage.removeItem('token');
@@ -54,6 +60,12 @@ function toggleDropdown() {
     dropdown.classList.toggle("show");
 };
 
+function openNotification(title, message) {
+    notification.style.display = 'flex';
+    notificationMessage.textContent = message;
+    notificationTitle.textContent = title;
+};
+
 profileBTN.addEventListener('click', () => {
     toggleDropdown()
 });
@@ -74,6 +86,14 @@ settingsCloseBTN.addEventListener('click', () => {
     settingsPopup.style.display = 'none';
 });
 
+notificationCloseBTN.addEventListener('click', () => {
+    notification.style.display = 'none';
+});
+
+notificationCloseBTN2.addEventListener('click', () => {
+    notification.style.display = 'none';
+});
+
 settingsPopup.addEventListener('click', function(event){
     if (event.target === this){
         settingsPopup.style.display = 'none';
@@ -85,9 +105,8 @@ site.addEventListener('click', function(event){
         dropdown.classList.remove("show");
     };
 });
-
 // loginStatus === 'true''
-if (loginStatus === 'true') {
+if (1==1) {
     checkTokenValidity();
     siteBarVersionText.textContent = `${version}`
     userNameText.textContent = `${username}`;

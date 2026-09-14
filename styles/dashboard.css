@@ -509,3 +509,82 @@
     margin-left: 5%;
     filter: brightness(0) invert(1);
 }
+
+.notification{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.notificationPopup{
+    background-color: #0e1b27;
+    width: 20%;
+    height: 20%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1%;
+}
+
+.notificationTitle{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    margin-left: 5%;
+}
+
+.notificationTitleBarDiv{
+    display: flex;
+    flex-direction: row;
+}
+
+.notificationMessageDiv{
+    height: 100%;
+    width: 100%;
+}
+
+.notificationCloseBTN{
+    margin-left: auto;
+    background-color: transparent;
+    border: none;
+}
+
+.notificationCloseBTNIcon{
+    height: 50%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    filter: brightness(0) invert(1);
+}
+
+.notificationMessage{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
+
+.notificationCloseBTN2{
+    background-color: #5d616657;
+    border-radius: 5px;
+    margin-bottom: 2%;
+    margin-right: 2%;
+    height: 10%;
+    border: none;
+    margin-left: auto;
+}
+
+.notificationCloseBTN2Text{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    margin-left: 5%;
+    margin-top: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
