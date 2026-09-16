@@ -106,7 +106,7 @@ site.addEventListener('click', function(event){
     };
 });
 // loginStatus === 'true''
-if (1==1) {
+if (loginStatus === 'true') {
     checkTokenValidity();
     siteBarVersionText.textContent = `${version}`
     userNameText.textContent = `${username}`;
