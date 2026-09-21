@@ -49,21 +49,21 @@ async function logout() {
         localStorage.setItem('loginStatus', 'false');
         localStorage.removeItem('username');
         localStorage.removeItem('token');
-        window.location.href = '/login';
+        // window.location.href = '/login';
     }else {
         alert('Error at Logout')
         console.log(data)
     }
 };
 
-function toggleDropdown() {
-    dropdown.classList.toggle("show");
-};
-
 function openNotification(title, message) {
     notification.style.display = 'flex';
     notificationMessage.textContent = message;
     notificationTitle.textContent = title;
+};
+
+function toggleDropdown() {
+    dropdown.classList.toggle("show");
 };
 
 profileBTN.addEventListener('click', () => {
