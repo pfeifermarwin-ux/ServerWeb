@@ -30,7 +30,7 @@ async function checkTokenValidity() {
     if (response.status == 200){
         localStorage.setItem('loginStatus', 'true');
     }else {
-        openNotification(response.status,data.detail)
+        await openNotification(response.status,data.detail)
         localStorage.setItem('loginStatus', 'false');
         localStorage.removeItem('username');
         localStorage.removeItem('token');
@@ -49,7 +49,7 @@ async function logout() {
         localStorage.setItem('loginStatus', 'false');
         localStorage.removeItem('username');
         localStorage.removeItem('token');
-        // window.location.href = '/login';
+        window.location.href = '/login';
     }else {
         alert('Error at Logout')
         console.log(data)
@@ -57,9 +57,22 @@ async function logout() {
 };
 
 function openNotification(title, message) {
-    notification.style.display = 'flex';
-    notificationMessage.textContent = message;
-    notificationTitle.textContent = title;
+    return new Promise((resolve) => {
+        notification.style.display = 'flex';
+        notificationMessage.textContent = message;
+        notificationTitle.textContent = title;
+
+        notificationCloseBTN.onclick = () => {
+            notification.style.display = 'none';
+            resolve();
+        };
+
+        notificationCloseBTN2.onclick = () => {
+            notification.style.display = 'none';
+            resolve();
+        };
+    });
+    
 };
 
 function toggleDropdown() {
@@ -84,14 +97,6 @@ settingsButtonDropdown.addEventListener('click', () => {
 
 settingsCloseBTN.addEventListener('click', () => {
     settingsPopup.style.display = 'none';
-});
-
-notificationCloseBTN.addEventListener('click', () => {
-    notification.style.display = 'none';
-});
-
-notificationCloseBTN2.addEventListener('click', () => {
-    notification.style.display = 'none';
 });
 
 settingsPopup.addEventListener('click', function(event){
