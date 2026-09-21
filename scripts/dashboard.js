@@ -27,8 +27,7 @@ async function checkTokenValidity() {
         body: JSON.stringify({ username: username, token: token}),
     });
     const data = await response.json();
-    console.log(response.status)
-    if (response.status){
+    if (response.status == 200){
         localStorage.setItem('loginStatus', 'true');
     }else {
         openNotification(response.status,data.detail)
