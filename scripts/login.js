@@ -17,13 +17,13 @@ async function login(name, password) {
         body: JSON.stringify({ username: name, password: password}),
     });
     const data = await response.json();
-    if (data.status === 'success'){
+    if (response.status==200){
         localStorage.setItem('loginStatus', 'true');
         localStorage.setItem('username', name);
         localStorage.setItem('token', data.token);
         window.location.href = '/dashboard';
     } else {
-        errorLabel.textContent = data.message;
+        errorLabel.textContent = data.detail;
         usernameInput.style.borderColor = 'red';
         passwordInput.style.borderColor = 'red';
         usernameInput.focus();

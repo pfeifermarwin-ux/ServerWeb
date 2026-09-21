@@ -11,11 +11,11 @@ async function register(name, password) {
         body: JSON.stringify({ username: name, password: password}),
     });
     const data = await response.json();
-    if (data.status === 'success'){
+    if (response.status==200){
         alert(data.message)
         window.location.href = '/login'
     } else {
-        errorLabel.textContent = data.message;
+        errorLabel.textContent = data.detail;
         usernameInput.style.borderColor = 'red';
         passwordInput.style.borderColor = 'red';
         usernameInput.focus();

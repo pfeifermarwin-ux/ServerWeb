@@ -49,10 +49,60 @@
     <div class="overlay" id="settingsPopup">
         <div class="popup">
             <div class="popupSitebar">
-                <button class="settingsAccountBTN"><img src="" alt=""><p>Account</p></button>
+                <button class="settingsAccountBTN" onclick="showSettingsPage('accountSettingsDiv')"><img src="" alt=""><p>Account</p></button>
             </div>
             <div class="popupScreen">
-                <button class="settingsCloseBTN", id="settingsCloseBTN"><img src="assets/x.svg" alt="" class="settingsCloseIcon"></button>
+                <div class="settingsContent", id="settingsContent">
+                    <!-- <button class="settingsCloseBTN", id="settingsCloseBTN"><img src="assets/x.svg" alt="" class="settingsCloseIcon"></button> -->
+                    <div class="settingSite" id="accountSettingsDiv">
+                        <p class="settingsAccountTitle">Account</p>
+                        <div style="display: flex; flex-direction: row;">
+                            <div class="accountSettingsProfileDiv">
+                                <div>
+                                    <img src="" alt="">
+                                    <p></p>
+                                    <button><img src="" alt=""><p>Change profile picture</p></button>
+                                </div>
+                                <p>username:</p>
+                                <input type="text">
+                            </div>
+                            <div style="display: flex; flex-direction: column;">
+                                <div class="accountSettingsInfoDiv">
+                                    <div>
+                                        <img src="" alt="">
+                                        <p class="accountSettingsInfoTitle">Account details</p>
+                                    </div>
+                                    <div>
+                                        <img src="" alt="">
+                                        <p>User-UUID</p>
+                                        <p></p>
+                                    </div>
+                                    <div>
+                                        <img src="" alt="">
+                                        <p>Registered on</p>
+                                        <p></p>
+                                    </div>
+                                    <div>
+                                        <img src="" alt="">
+                                        <p>Last login</p>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="accountSettingsManageDiv">
+                                    <div>
+                                        <img src="" alt="">
+                                        <p>Manage account</p>
+                                    </div>
+                                    <button><img src="" alt=""><p>Change Password</p></button>
+                                    <button><img src="" alt=""><p>Delete account</p></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="settingSite" id="testSettingsDiv">
+                        <h1>nichts</h1>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

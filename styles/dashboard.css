@@ -588,3 +588,20 @@
     margin-right: 5%;
     margin-bottom: 5%;
 }
+
+.settingSite{
+    display: none;
+}
+
+.settingsAccountTitle{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    font-size: 200%;
+    margin-top: 1%;
+    font-weight: bold;
+}
+
+.accountSettingsInfoTitle{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+}

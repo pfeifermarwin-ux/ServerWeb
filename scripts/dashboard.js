@@ -30,7 +30,7 @@ async function checkTokenValidity() {
     if (response.status == 200){
         localStorage.setItem('loginStatus', 'true');
     }else {
-        await openNotification(response.status,data.detail)
+        await openNotification(`Error: ${response.status}`,data.detail)
         localStorage.setItem('loginStatus', 'false');
         localStorage.removeItem('username');
         localStorage.removeItem('token');
@@ -45,14 +45,13 @@ async function logout() {
         body: JSON.stringify({token: token})
     });
     const data = await respone.json();
-    if (data.status === 'success'){
+    if (respone.status == 200){
         localStorage.setItem('loginStatus', 'false');
         localStorage.removeItem('username');
         localStorage.removeItem('token');
         window.location.href = '/login';
     }else {
-        alert('Error at Logout')
-        console.log(data)
+        await openNotification(`Error: ${respone.status}`, data.detail)
     }
 };
 
@@ -74,6 +73,13 @@ function openNotification(title, message) {
     });
     
 };
+
+function showSettingsPage(id) {
+    document.querySelectorAll(".settingSite").forEach(settingSite => {
+        settingSite.style.display = "none";
+    });
+    document.getElementById(id).style.display = "block";
+}
 
 function toggleDropdown() {
     dropdown.classList.toggle("show");
