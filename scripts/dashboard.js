@@ -156,6 +156,8 @@ if (loginStatus === 'true') {
     setMainPage("overviewSite")
     if (getRole() !== 'ADMIN') {
         siteBarManageUserBTN.style.display = 'none';
+    }else {
+        siteBarManageUserBTN.style.display = 'block';
     }
     siteBarVersionText.textContent = `${version}`
     userNameText.textContent = `${username}`;
