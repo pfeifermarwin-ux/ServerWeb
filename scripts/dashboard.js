@@ -65,6 +65,7 @@ async function getRole() {
     });
     const data= await response.json();
     if (response.status == 200){
+        console.log(data)
         return data.role
     }else {
         await openNotification(`Error: ${response.status}`, data.detail)
