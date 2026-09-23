@@ -154,7 +154,7 @@ site.addEventListener('click', function(event){
 if (loginStatus === 'true') {
     checkTokenValidity();
     setMainPage("overviewSite")
-    if (!getRole === 'ADMIN') {
+    if (!getRole() === 'ADMIN') {
         siteBarManageUserBTN.style.display = 'none';
     }
     siteBarVersionText.textContent = `${version}`
