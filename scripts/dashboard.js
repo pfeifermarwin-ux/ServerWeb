@@ -158,9 +158,7 @@ site.addEventListener('click', function(event){
         const role = await getRole();
         if (role !== 'ADMIN') {
             siteBarManageUserBTN.style.display = 'none';
-        }else {
-            siteBarManageUserBTN.style.display = 'block';
-        }
+        };
         siteBarVersionText.textContent = `${version}`
         userNameText.textContent = `${username}`;
         greatingTitle.textContent = `Hello, ${username}`;
