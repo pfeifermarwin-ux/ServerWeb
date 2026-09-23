@@ -39,6 +39,7 @@
     padding: 0;
     margin: 0;
     background-color: #191a1b;
+    overflow: hidden;
 }
 
 .siteBarSpace{
@@ -90,7 +91,8 @@
     margin-right: 5%;
     height: 5%;
     border: transparent;
-    background-color: #7289dab7;
+    /* background-color: #7289dab7; */
+    background-color: transparent;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
@@ -161,6 +163,22 @@
     background-color: #5d616657;
 }
 
+.siteBarManageUserBTN{
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 5%;
+    background-color: transparent;
+    border: transparent;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    transition: all 0.3s ease;  
+}
+
+.siteBarManageUserBTN:hover{
+    background-color: #5d616657;
+}
+
 .siteBarOverviewBTNIcon{
     height: 50%;
     margin-top: 5%;
@@ -194,6 +212,14 @@
 }
 
 .siteBarSystemBTNIcon{
+    height: 50%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    filter: brightness(0) invert(1);
+}
+
+.siteBarManageUsersBTNIcon{
     height: 50%;
     margin-top: 5%;
     margin-bottom: 5%;
@@ -242,6 +268,15 @@
     color: #ffffff;
     margin-top: 5%;
     margin-bottom: 5%;
+    margin-left: 5%;
+    text-align: center;
+}
+
+.siteBarManageUsersBTNText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    margin-top: auto;
+    margin-bottom: auto;
     margin-left: 5%;
     text-align: center;
 }
@@ -604,4 +639,52 @@
 .accountSettingsInfoTitle{
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: #ffffff;
+}
+
+.mainPageSite{
+    height: 100%;
+    display: none;
+}
+
+.manageUsersTableDiv{
+    background-color: #2c2f33;
+    height: 80%;
+    margin: 1%;
+    border-radius: 5px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.usersTable{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #2c2f33;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.usersTable th {
+    background-color: #4f46e5;
+    color: white;
+    padding: 15px;
+    text-align: left;
+
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.usersTable td {
+    padding: 14px 15px;
+    border: none;
+    color: white;
+}
+
+.usersTable tbody tr:nth-child(even) {
+    background-color: #44484d;
+}
+
+.usersTable tbody tr:hover {
+    background-color: rgb(56, 60, 65);
+    cursor: pointer;
 }

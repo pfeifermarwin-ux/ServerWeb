@@ -18,6 +18,8 @@ const notificationTitle = document.getElementById('notificationTitle');
 const notificationMessage = document.getElementById('notificationMessage');
 const notificationCloseBTN = document.getElementById('notificationCloseBTN');
 const notificationCloseBTN2 = document.getElementById('notificationCloseBTN2');
+const siteBarManageUserBTN = document.getElementById('siteBarManageUserBTN')
+const overviewButton = document.getElementById('overviewButton')
 
 
 async function checkTokenValidity() {
@@ -55,6 +57,20 @@ async function logout() {
     }
 };
 
+async function getRole() {
+    const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/get_role', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({username: username,token: token})
+    });
+    const data= await response.json();
+    if (response.status == 200){
+        return data.role
+    }else {
+        await openNotification(`Error: ${response.status}`, data.detail)
+    }
+}
+
 function openNotification(title, message) {
     return new Promise((resolve) => {
         notification.style.display = 'flex';
@@ -85,6 +101,13 @@ function toggleDropdown() {
     dropdown.classList.toggle("show");
 };
 
+function setMainPage(id) {
+    document.querySelectorAll(".mainPageSite").forEach(mainSite => {
+        mainSite.style.display = "none"
+    })
+    document.getElementById(id).style.display = "block"
+}
+
 profileBTN.addEventListener('click', () => {
     toggleDropdown()
 });
@@ -101,9 +124,20 @@ settingsButtonDropdown.addEventListener('click', () => {
     settingsPopup.style.display = 'flex';
 });
 
-settingsCloseBTN.addEventListener('click', () => {
+settingsCloseBTN.onclick = () => {
     settingsPopup.style.display = 'none';
-});
+};
+
+siteBarManageUserBTN.onclick = () => {
+    setMainPage("manageUsersSite")
+    const table = document.querySelector('#usersTable tbody')
+    const newRow = table.insertRow()
+
+};
+
+overviewButton.onclick = () => {
+    setMainPage("overviewSite")
+};
 
 settingsPopup.addEventListener('click', function(event){
     if (event.target === this){
@@ -119,9 +153,14 @@ site.addEventListener('click', function(event){
 // loginStatus === 'true''
 if (loginStatus === 'true') {
     checkTokenValidity();
+    setMainPage("overviewSite")
+    if (!getRole === 'ADMIN') {
+        siteBarManageUserBTN.style.display = 'none';
+    }
     siteBarVersionText.textContent = `${version}`
     userNameText.textContent = `${username}`;
     greatingTitle.textContent = `Hello, ${username}`;
+
 }else {
     window.location.href = '/login';
 };

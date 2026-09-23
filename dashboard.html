@@ -14,13 +14,13 @@
                 <img src="assets/logo.png" alt="logo" class="logo">
                 <h1 class="titleText">Dashboard</h1>
             </div>
-            <button class="siteBarOverviewBTN"><img src="assets/house-fill.svg" alt="homeIcon" class="siteBarOverviewBTNIcon"><p class="siteBarOverviewBTNText">Overview</p></button>
+            <button class="siteBarOverviewBTN" id="overviewButton"><img src="assets/house-fill.svg" alt="homeIcon" class="siteBarOverviewBTNIcon"><p class="siteBarOverviewBTNText">Overview</p></button>
             <button class="siteBarProgramsBTN"><img src="assets/download.svg" alt="programsIcon" class="siteBarProgramsBTNIcon"><p class="siteBarProgramsBTNText">Programs</p></button>
             <button class="siteBarWebAppsBTN"><img src="assets/globe.svg" alt="webAppIcon" class="siteBarWebAppsBTNIcon"><p class="siteBarWebAppsBTNText">Web Apps</p></button>
             <button class="siteBarUserBTN"><img src="assets/people-fill.svg" alt="userIcon" class="siteBarUserBTNIcon"><p class="siteBarUserBTNText">User</p></button>
-            <button class="siteBarSystemBTN", id="settingsButton"><img src="assets/gear-fill.svg" alt="systemIcon" class="siteBarSystemBTNIcon"><p class="siteBarSystemBTNText">Settings</p></button>
+            <button class="siteBarSystemBTN" id="settingsButton"><img src="assets/gear-fill.svg" alt="systemIcon" class="siteBarSystemBTNIcon"><p class="siteBarSystemBTNText">Settings</p></button>
             <hr class="siteBarHR">
-            <p>Admin btn</p>
+            <button class="siteBarManageUserBTN" id="siteBarManageUserBTN"><img src="assets/users-gear-solid-full.svg" alt="" class="siteBarManageUsersBTNIcon"><p class="siteBarManageUsersBTNText">Manage Users</p></button>
             <div class="siteBarSpace"></div>
             <p class="siteBarVersionText" id="siteBarVersionText"></p>
         </div>
@@ -38,10 +38,27 @@
                 </div>
             </div>
             <div class="mainPageDiv">
-                <div class="greatingDiv">
+                <div class="mainPageSite" id="overviewSite">
+                    <div class="greatingDiv">
                         <h1 class="greatingTitle" id="greatingTitle"></h1>
+                    </div>
                 </div>
-
+                <div class="mainPageSite" id="manageUsersSite">
+                    <div class="manageUsersTableDiv">
+                        <table class="usersTable" id="usersTable">
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Test2</th>
+                                    <th>Test3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -53,7 +70,7 @@
             </div>
             <div class="popupScreen">
                 <div class="settingsContent", id="settingsContent">
-                    <!-- <button class="settingsCloseBTN", id="settingsCloseBTN"><img src="assets/x.svg" alt="" class="settingsCloseIcon"></button> -->
+                    <button class="settingsCloseBTN", id="settingsCloseBTN"><img src="assets/x.svg" alt="" class="settingsCloseIcon"></button>
                     <div class="settingSite" id="accountSettingsDiv">
                         <p class="settingsAccountTitle">Account</p>
                         <div style="display: flex; flex-direction: row;">
