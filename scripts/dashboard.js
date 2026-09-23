@@ -151,19 +151,21 @@ site.addEventListener('click', function(event){
     };
 });
 // loginStatus === 'true''
-if (loginStatus === 'true') {
-    checkTokenValidity();
-    setMainPage("overviewSite")
-    const role = await getRole();
-    if (role !== 'ADMIN') {
-        siteBarManageUserBTN.style.display = 'none';
-    }else {
-        siteBarManageUserBTN.style.display = 'block';
-    }
-    siteBarVersionText.textContent = `${version}`
-    userNameText.textContent = `${username}`;
-    greatingTitle.textContent = `Hello, ${username}`;
+(async () => {
+    if (loginStatus === 'true') {
+        checkTokenValidity();
+        setMainPage("overviewSite")
+        const role = await getRole();
+        if (role !== 'ADMIN') {
+            siteBarManageUserBTN.style.display = 'none';
+        }else {
+            siteBarManageUserBTN.style.display = 'block';
+        }
+        siteBarVersionText.textContent = `${version}`
+        userNameText.textContent = `${username}`;
+        greatingTitle.textContent = `Hello, ${username}`;
 
-}else {
-    window.location.href = '/login';
-};
+    }else {
+        window.location.href = '/login';
+    };
+})();
