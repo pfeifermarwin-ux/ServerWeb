@@ -142,11 +142,21 @@ settingsCloseBTN.onclick = () => {
     settingsPopup.style.display = 'none';
 };
 
-siteBarManageUserBTN.onclick = () => {
+siteBarManageUserBTN.onclick = async () => {
     setMainPage("manageUsersSite")
     const table = document.querySelector('#usersTable tbody')
-    const newRow = table.insertRow()
-    console.log(getUsers())
+    const users = await getUsers()
+    if (!users) {
+        return;
+    }
+    table.innerHTML = "";
+    users.users.forEach(user => {
+        const newRow = table.insertRow()
+        newRow.insertCell(0).textContent = user.username;
+        newRow.insertCell(1).textContent = user.useruuid;
+        newRow.insertCell(2).textContent = user.createdat;
+        newRow.insertCell(3).textContent = user.role;
+    });
 };
 
 overviewButton.onclick = () => {
