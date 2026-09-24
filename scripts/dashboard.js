@@ -71,6 +71,20 @@ async function getRole() {
     }
 }
 
+async function getUsers() {
+    const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/get_users', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({username: username,token: token})
+    });
+    const data = await response.json();
+    if (response.status == 200){
+        return data
+    }else {
+        await openNotification(`Error: ${response.status}`, data.detail)
+    }
+}
+
 function openNotification(title, message) {
     return new Promise((resolve) => {
         notification.style.display = 'flex';
@@ -132,7 +146,7 @@ siteBarManageUserBTN.onclick = () => {
     setMainPage("manageUsersSite")
     const table = document.querySelector('#usersTable tbody')
     const newRow = table.insertRow()
-
+    console.log(getUsers())
 };
 
 overviewButton.onclick = () => {
