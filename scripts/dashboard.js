@@ -158,7 +158,7 @@ siteBarManageUserBTN.onclick = async () => {
         newRow.insertCell(3).textContent = user.role;
 
         newRow.onclick = () => {
-            await.openNotification("Table click", `Username: ${user.username}`)
+            console.log(user.username)
         };
     });
 };
