@@ -192,6 +192,6 @@ site.addEventListener('click', function(event){
         greatingTitle.textContent = `Hello, ${username}`;
 
     }else {
-        // window.location.href = '/login';
+        window.location.href = '/login';
     };
 })();
