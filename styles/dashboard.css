@@ -705,17 +705,18 @@
 }
 
 .userManagePopup{
-    background-color: #0e1b27;
+    background-color: #031121;
     width: 70%;
     height: 70%;
     border-radius: 10px;
     display: flex;
     flex-direction: row;
     gap: 1%;
+    border: #ffffff0a solid 1px;
 }
 
 .userManageView{
-    background-color: green;
+    background-color: transparent;
     width: 100%;
     height: 100%;
     border-radius: 0px 10px 10px 0px;
@@ -723,15 +724,20 @@
 }
 
 .userManageSidebar{
-    background-color: red;
+    background-color: #0e1e2b;
     width: 20%;
     border-radius: 10px 0px 0px 10px;
+    border: #ffffff0a solid 1px;
 }
 
 .userManageOverviewHead{
-    background-color: blue;
+    background-color: #0b1c2a;
     height: 15%;
     margin: 1%;
+    border-radius: 10px;
+    border: #ffffff0a solid 1px;
+    display: flex;
+    flex-direction: row;
 }
 
 .userManageSite{
@@ -743,12 +749,13 @@
 
 .userManageOverviewCard{
     width: 25%;
-    background-color: orange;
+    background-color: #0b1c2a;
     border-radius: 10px;
+    border: #ffffff0a solid 1px;
 }
 
 .userManageOverviewRow{
-    background-color: yellow;
+    background-color: transparent;
     height: 10%;
     margin: 1%;
     display: flex;
@@ -757,7 +764,7 @@
 }
 
 .userManageOverviewRowTwo{
-    background-color: mediumslateblue;
+    background-color: transparent;
     margin: 1%;
     height: 65%;
     display: flex;
@@ -765,25 +772,153 @@
 }
 
 .userManageOverviewRowTwoLeft{
-    background-color: gold;
+    background-color: transparent;
     margin: 1%;
     width: 50%;
 }
 
 .userManageOverviewInfo{
-    background-color: lightgreen;
+    background-color: #0b1c2a;
     margin: 1%;
+    margin-bottom: 2%;
+    margin-top: 0%;
     height: 70%;
+    border-radius: 10px;
+    border: #ffffff0a solid 1px;
 }
 
 .userManageOverviewDeviceList{
-    background-color: lavenderblush;
+    background-color: #0b1c2a;
     margin: 1%;
     height: 26%;
+    border-radius: 10px;
+    border: #ffffff0a solid 1px;
 }
 
 .userManageOverviewAktivities{
-    background-color: indigo;
+    background-color: #0b1c2a;
     margin: 1%;
     width: 50%;
+    border-radius: 10px;
+    border: #ffffff0a solid 1px;
+}
+
+.userManageOverviewProfilePicture{
+    background-color: #152d46;
+    border-radius: 50%;
+    height: 80%;
+    margin: 1%;
+}
+
+.userManageOverviewHeadNameDiv{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.userManageOverviewHeadNameDivRegistertDiv{
+    display: flex;
+    flex-direction: row;
+}
+
+.userManageOverviewHeadNameDivRegistertDivIcon{
+    height: 50%;
+    margin-top: 4%;
+    margin-bottom: 5%;
+    margin-right: 1%;
+    margin-left: 3%;
+}
+
+.userManageOverviewHeadNameDivUsername{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    font-size: 150%;
+    text-align: left;
+    margin: 0;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.userManageOverviewHeadNameDivRegistertDivText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #bdbdbd;
+    font-size: 80%;
+    margin: 0;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+.userManageOverviewHeadEditButton{
+    background-color: #0068f6;
+    border-radius: 5px;
+    border: #ffffff28 solid 2px;
+    height: 30%;
+    width: 12%;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    margin-left: 15%;
+}
+
+.userManageOverviewHeadEditButtonIcon{
+    height: 90%;
+    margin: 1%;
+}
+
+.userManageOverviewHeadEditButtonText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    text-align: center;
+    margin: auto;
+}
+
+.userManageOverviewHeadPasswordButton{
+    background-color: #132b44;
+    border-radius: 5px;
+    border: #ffffff28 solid 2px;
+    height: 30%;
+    width: 15%;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    margin-left: 1%;
+}
+
+.userManageOverviewHeadPasswordButtonIcon{
+    height: 90%;
+    margin: 1%;
+}
+
+.userManageOverviewHeadPasswordButtonText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    text-align: center;
+    margin: auto;
+}
+
+.userManageOverviewHeadBlockButton{
+    background-color: #ff000059;
+    border-radius: 5px;
+    border: #ff000028 solid 2px;
+    height: 30%;
+    width: 15%;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    margin-left: 1%;
+}
+
+.userManageOverviewHeadBlockButtonIcon{
+    height: 90%;
+    margin: 1%;
+    filter: brightness(0) saturate(100%) invert(17%) sepia(97%) saturate(6455%) hue-rotate(357deg) brightness(94%) contrast(114%);
+}
+
+.userManageOverviewHeadBlockButtonText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ff0000;
+    text-align: center;
+    margin: auto;
+    margin-left: 5%;
 }
