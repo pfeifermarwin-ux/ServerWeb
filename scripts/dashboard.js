@@ -20,6 +20,7 @@ const notificationCloseBTN = document.getElementById('notificationCloseBTN');
 const notificationCloseBTN2 = document.getElementById('notificationCloseBTN2');
 const siteBarManageUserBTN = document.getElementById('siteBarManageUserBTN')
 const overviewButton = document.getElementById('overviewButton')
+const userManage = document.getElementById('userManage')
 
 
 async function checkTokenValidity() {
@@ -122,6 +123,10 @@ function setMainPage(id) {
     document.getElementById(id).style.display = "block"
 }
 
+function manageUser(uuid) {
+    userManage.style.display = 'flex';
+}
+
 profileBTN.addEventListener('click', () => {
     toggleDropdown()
 });
@@ -158,7 +163,7 @@ siteBarManageUserBTN.onclick = async () => {
         newRow.insertCell(3).textContent = user.role;
 
         newRow.onclick = () => {
-            console.log(user.username)
+            manageUser(user.uuid)
         };
     });
 };

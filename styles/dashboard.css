@@ -693,8 +693,8 @@
 }
 
 .userManage{
-    /* display: none; */
-    display: flex;
+    display: none;
+    /* display: flex; */
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
@@ -752,6 +752,8 @@
     background-color: #0b1c2a;
     border-radius: 10px;
     border: #ffffff0a solid 1px;
+    display: flex;
+    flex-direction: row;
 }
 
 .userManageOverviewRow{
@@ -808,6 +810,7 @@
     border-radius: 50%;
     height: 80%;
     margin: 1%;
+    border: #ffffff0a solid 1px;
 }
 
 .userManageOverviewHeadNameDiv{
@@ -841,7 +844,7 @@
 
 .userManageOverviewHeadNameDivRegistertDivText{
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    color: #bdbdbd;
+    color: #ffffff8a;
     font-size: 80%;
     margin: 0;
     margin-top: 5%;
@@ -921,4 +924,67 @@
     text-align: center;
     margin: auto;
     margin-left: 5%;
+}
+
+.userManageOverviewCardTitle{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff8a;
+    margin: 0;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.userManageOverviewCardIcon{
+    background-color: #142f4a;
+    border-radius: 10px;
+    margin: 3%;
+    border: #ffffff0a solid 1px;
+}
+
+.userManageOverviewCardText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    text-align: left;
+    margin: 0;
+    margin-left: 10%;
+    margin-top: 2%;
+    font-size: 20px;
+}
+
+.userManageOverviewInfoIcon{
+    border: #ffffff0a solid 1px;
+    background-color: #142f4a;
+    border-radius: 10px;
+    width: 5%;
+    height: 5%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.userManageOverviewInfoTitle{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+}
+
+.userManageOverviewInfoCategory{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff8a;
+    margin-left: 2%;
+    width: 100%;
+}
+
+.userManageOverviewInfoAnswer{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff8a;
+    margin-right: 2%;
+}
+
+.userManageOverviewInfoHr{
+    margin-left: 2%;
+    margin-right: 2%;
+    border: none;
+    height: 1px;
+    background-color: #ffffff1e;
 }
