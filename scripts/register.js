@@ -41,7 +41,7 @@ registerButton.addEventListener('click', () => {
         passwordInput.focus();
         passwordInput.style.borderColor = 'red';
     }else {
-        register(usernameInput.value, passwordInput.value, nameInput.value, emailInput.value, birthdateInput.value)
+        register(usernameInput.value, passwordInput.value, nameInput.value, emailInput.value, birthdateInput.value.stringify)
     }
 });
 
