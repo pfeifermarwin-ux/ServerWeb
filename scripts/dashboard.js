@@ -156,6 +156,11 @@ async function manageUser(uuid) {
         dateStyle: 'medium',
         timeStyle: 'short'
     });
+    const registerAt = new Date(userInfo.registerAt)
+    const registerAtFormated = registerAt.toLocaleString('de-DE', {
+        dateStyle: 'medium',
+        timeStyle: 'short'
+    })
     const userManageOverviewHeadNameDivUsername = document.getElementById('userManageOverviewHeadNameDivUsername');
     const userManageOverviewHeadNameDivRegistertDivText = document.getElementById('userManageOverviewHeadNameDivRegistertDivText');
     const userManageOverviewCardRoleText = document.getElementById('userManageOverviewCardRoleText');
@@ -166,14 +171,14 @@ async function manageUser(uuid) {
     const userManageOverviewInfoBirthdayAnswer = document.getElementById('userManageOverviewInfoBirthdayAnswer');
     const userManageOverviewInfoRegisteratAnswer = document.getElementById('userManageOverviewInfoRegisteratAnswer');
     userManageOverviewHeadNameDivUsername.textContent = userInfo.username;
-    userManageOverviewHeadNameDivRegistertDivText.textContent = userInfo.createdat;
+    userManageOverviewHeadNameDivRegistertDivText.textContent = registerAtFormated;
     userManageOverviewCardRoleText.textContent = userInfo.role;
     userManageOverviewCardLastLoginText.textContent = lastLoginFormated;
     userManageOverviewInfoNameAnswer.textContent = userInfo.name;
     userManageOverviewInfoEmailAnswer.textContent = userInfo.email;
     userManageOverviewInfoUuidAnswer.textContent = userInfo.useruuid;
     userManageOverviewInfoBirthdayAnswer.textContent = userInfo.birthdate;
-    userManageOverviewInfoRegisteratAnswer.textContent = userInfo.createdat
+    userManageOverviewInfoRegisteratAnswer.textContent = registerAtFormated
 }
 
 profileBTN.addEventListener('click', () => {
