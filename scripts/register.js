@@ -11,7 +11,7 @@ async function register(username, password, name, email, birtdate) {
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/register', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ username: username, password: password, name: name, email: email, birtdate: birtdate}),
+        body: JSON.stringify({ username: username, password: password, name: name, email: email, birthdate: birtdate}),
     });
     const data = await response.json();
     if (response.status==200){
@@ -22,7 +22,6 @@ async function register(username, password, name, email, birtdate) {
         usernameInput.style.borderColor = 'red';
         passwordInput.style.borderColor = 'red';
         usernameInput.focus();
-        console.log(data)
     }
 };
 
@@ -41,7 +40,7 @@ registerButton.addEventListener('click', () => {
         passwordInput.focus();
         passwordInput.style.borderColor = 'red';
     }else {
-        register(usernameInput.value, passwordInput.value, nameInput.value, emailInput.value, birthdateInput.value.stringify)
+        register(usernameInput.value, passwordInput.value, nameInput.value, emailInput.value, birthdateInput.value)
     }
 });
 
