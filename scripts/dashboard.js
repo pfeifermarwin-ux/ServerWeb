@@ -226,7 +226,7 @@ site.addEventListener('click', function(event){
     if (!dropdown.contains(event.target) && !profileBTN.contains(event.target)){
         dropdown.classList.remove("show");
     };
-    if (!userManage.contains(event.target)){
+    if (event.target == userManage){
         userManage.style.display = 'none';
     };
 });
