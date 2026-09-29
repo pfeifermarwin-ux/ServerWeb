@@ -695,7 +695,7 @@
 
 .userManage{
     display: none;
-    /* display: flex; */
+    display: flex;
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
@@ -973,13 +973,15 @@
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: #ffffff8a;
     margin-left: 2%;
-    width: 100%;
+    width: 30%;
 }
 
 .userManageOverviewInfoAnswer{
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: #ffffff8a;
     margin-right: 2%;
+    width: 100%;
+    text-align: right;
 }
 
 .userManageOverviewInfoHr{
