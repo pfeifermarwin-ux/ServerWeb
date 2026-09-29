@@ -100,8 +100,14 @@ async function getUserInfo(useruuid) {
     if (response.status == 200){
         return data
     }else {
-        const errorMsg = typeof data.detail === 'object' ? JSON.stringify(data.detail) : data.detail;
-        await openNotification(`Error: ${response.status}`, errorMsg)
+        let errorDetail = "Unbekannter Serverfehler";
+        try {
+            const data = await response.json();
+            errorDetail = data.detail || JSON.stringify(data);
+        } catch (e) {
+            errorDetail = await response.text();
+        }
+        await openNotification(`Error: ${response.status}`, errorDetail);
     }
 }
 
