@@ -167,7 +167,7 @@ async function manageUser(uuid) {
     userManageOverviewInfoNameAnswer.textContent = userInfo.name;
     userManageOverviewInfoEmailAnswer.textContent = userInfo.email;
     userManageOverviewInfoUuidAnswer.textContent = userInfo.useruuid;
-    userManageOverviewInfoBirthdayAnswer.textContent = userInfo.birthday;
+    userManageOverviewInfoBirthdayAnswer.textContent = userInfo.birthdate;
     userManageOverviewInfoRegisteratAnswer.textContent = userInfo.createdat
 }
 
