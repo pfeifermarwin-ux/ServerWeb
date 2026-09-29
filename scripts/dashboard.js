@@ -90,13 +90,18 @@ async function getUserInfo(useruuid) {
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/get_user_info', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({useruuid: useruuid,requestUserName: username, requestUserToken: token})
+        body: JSON.stringify({
+            useruuid: useruuid,
+            requestUserName: username,
+            requestUserToken: token
+        })
     });
     const data = await response.json();
     if (response.status == 200){
         return data
     }else {
-        await openNotification(`Error: ${response.status}`, data.detail)
+        const errorMsg = typeof data.detail === 'object' ? JSON.stringify(data.detail) : data.detail;
+        await openNotification(`Error: ${response.status}`, errorMsg)
     }
 }
 
@@ -196,7 +201,7 @@ siteBarManageUserBTN.onclick = async () => {
         newRow.insertCell(3).textContent = user.role;
 
         newRow.onclick = () => {
-            manageUser(user.uuid)
+            manageUser(user.useruuid)
         };
     });
 };
