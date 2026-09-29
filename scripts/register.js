@@ -22,6 +22,7 @@ async function register(username, password, name, email, birtdate) {
         usernameInput.style.borderColor = 'red';
         passwordInput.style.borderColor = 'red';
         usernameInput.focus();
+        console.log(data)
     }
 };
 
