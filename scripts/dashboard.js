@@ -86,6 +86,20 @@ async function getUsers() {
     }
 }
 
+async function getUserInfo(useruuid) {
+    const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/get_user_info', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({useruuid: useruuid,requestUserName: username, requestUserToken: token})
+    });
+    const data = await response.json();
+    if (response.status == 200){
+        return data
+    }else {
+        await openNotification(`Error: ${response.status}`, data.detail)
+    }
+}
+
 function openNotification(title, message) {
     return new Promise((resolve) => {
         notification.style.display = 'flex';
@@ -123,8 +137,27 @@ function setMainPage(id) {
     document.getElementById(id).style.display = "block"
 }
 
-function manageUser(uuid) {
+async function manageUser(uuid) {
     userManage.style.display = 'flex';
+    const userInfo = await getUserInfo(uuid);
+    const userManageOverviewHeadNameDivUsername = document.getElementById('userManageOverviewHeadNameDivUsername');
+    const userManageOverviewHeadNameDivRegistertDivText = document.getElementById('userManageOverviewHeadNameDivRegistertDivText');
+    const userManageOverviewCardRoleText = document.getElementById('userManageOverviewCardRoleText');
+    const userManageOverviewCardLastLoginText = document.getElementById('userManageOverviewCardLastLoginText');
+    const userManageOverviewInfoNameAnswer = document.getElementById('userManageOverviewInfoNameAnswer');
+    const userManageOverviewInfoEmailAnswer = document.getElementById('userManageOverviewInfoEmailAnswer');
+    const userManageOverviewInfoUuidAnswer = document.getElementById('userManageOverviewInfoUuidAnswer');
+    const userManageOverviewInfoBirthdayAnswer = document.getElementById('userManageOverviewInfoBirthdayAnswer');
+    const userManageOverviewInfoRegisteratAnswer = document.getElementById('userManageOverviewInfoRegisteratAnswer');
+    userManageOverviewHeadNameDivUsername.textContent = userInfo.username;
+    userManageOverviewHeadNameDivRegistertDivText.textContent = userInfo.createdat;
+    userManageOverviewCardRoleText.textContent = userInfo.role;
+    userManageOverviewCardLastLoginText.textContent = userInfo.lastlogin;
+    userManageOverviewInfoNameAnswer.textContent = userInfo.name;
+    userManageOverviewInfoEmailAnswer.textContent = userInfo.email;
+    userManageOverviewInfoUuidAnswer.textContent = userInfo.useruuid;
+    userManageOverviewInfoBirthdayAnswer.textContent = userInfo.birthday;
+    userManageOverviewInfoRegisteratAnswer.textContent = userInfo.createdat
 }
 
 profileBTN.addEventListener('click', () => {
