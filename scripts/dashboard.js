@@ -151,6 +151,11 @@ function setMainPage(id) {
 async function manageUser(uuid) {
     userManage.style.display = 'flex';
     const userInfo = await getUserInfo(uuid);
+    const lastLogin = new Date(userInfo.lastlogin)
+    const lastLoginFormated = lastLogin.toLocaleString('de-DE', {
+        dateStyle: 'medium',
+        timeStyle: 'short'
+    });
     const userManageOverviewHeadNameDivUsername = document.getElementById('userManageOverviewHeadNameDivUsername');
     const userManageOverviewHeadNameDivRegistertDivText = document.getElementById('userManageOverviewHeadNameDivRegistertDivText');
     const userManageOverviewCardRoleText = document.getElementById('userManageOverviewCardRoleText');
@@ -163,7 +168,7 @@ async function manageUser(uuid) {
     userManageOverviewHeadNameDivUsername.textContent = userInfo.username;
     userManageOverviewHeadNameDivRegistertDivText.textContent = userInfo.createdat;
     userManageOverviewCardRoleText.textContent = userInfo.role;
-    userManageOverviewCardLastLoginText.textContent = userInfo.lastlogin;
+    userManageOverviewCardLastLoginText.textContent = lastLoginFormated;
     userManageOverviewInfoNameAnswer.textContent = userInfo.name;
     userManageOverviewInfoEmailAnswer.textContent = userInfo.email;
     userManageOverviewInfoUuidAnswer.textContent = userInfo.useruuid;
