@@ -13,7 +13,7 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 350px;
-    height: 400px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,7 +29,7 @@
 
 .userNameInput {
     width: 70%;
-    height: 8%;
+    height: 7%;
     background-color: #40444b;
     border: none;
     border-radius: 10px;
@@ -60,7 +60,7 @@
 
 .passwordInput {
     width: 70%;
-    height: 8%;
+    height: 7%;
     background-color: #40444b;
     border: none;
     border-radius: 10px;
@@ -98,7 +98,7 @@
 
 .registerButton{
     width: 70%;
-    height: 8%;
+    height: 7%;
     background-color: #7289da;
     border: none;
     border-radius: 10px;
@@ -120,7 +120,7 @@
 
 .loginButton {
     width: 70%;
-    height: 8%;
+    height: 7%;
     background-color: #7289da;
     border: none;
     border-radius: 10px;
@@ -129,7 +129,7 @@
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-bottom: 30%;
+    margin-bottom: 10%;
 }
 
 .loginButton:hover {
@@ -138,4 +138,97 @@
 
 .loginButton:active {
     background-color: #4a5b8c;
+}
+
+.nameInput{
+    width: 70%;
+    height: 7%;
+    background-color: #40444b;
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box; 
+    padding: 10px;
+    color: #ffffff;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 14px;
+    transition: border 0.3s ease;
+    outline: none;
+    border: 2px solid transparent; 
+}
+
+.nameInput::placeholder {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #b9bbbe;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.nameInput:focus::placeholder{
+    color: transparent;
+}
+
+.nameInput:focus {
+    border-color: #68696b; 
+}
+
+.emailInput{
+    width: 70%;
+    height: 7%;
+    background-color: #40444b;
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box; 
+    padding: 10px;
+    color: #ffffff;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 14px;
+    transition: border 0.3s ease;
+    outline: none;
+    border: 2px solid transparent; 
+}
+
+.emailInput::placeholder {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #b9bbbe;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.emailInput:focus::placeholder{
+    color: transparent;
+}
+
+.emailInput:focus {
+    border-color: #68696b; 
+}
+
+.birthdateInput{
+    width: 70%;
+    height: 7%;
+    background-color: #40444b;
+    border: none;
+    border-radius: 10px;
+    box-sizing: border-box; 
+    padding: 10px;
+    color: #ffffff;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 14px;
+    transition: border 0.3s ease;
+    outline: none;
+    border: 2px solid transparent; 
+}
+
+.birthdateInput::placeholder {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #b9bbbe;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.birthdateInput:focus::placeholder{
+    color: transparent;
+}
+
+.birthdateInput:focus {
+    border-color: #68696b; 
 }
