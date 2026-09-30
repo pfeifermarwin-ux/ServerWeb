@@ -182,7 +182,7 @@ async function manageUser(uuid) {
     const userManageOverviewInfoBirthdayAnswer = document.getElementById('userManageOverviewInfoBirthdayAnswer');
     const userManageOverviewInfoRegisteratAnswer = document.getElementById('userManageOverviewInfoRegisteratAnswer');
     userManageOverviewHeadNameDivUsername.textContent = userInfo.username;
-    userManageOverviewHeadNameDivRegistertDivText.textContent = registerAtFormated;
+    userManageOverviewHeadNameDivRegistertDivText.textContent = `Registert at: ${registerAtFormated}`;
     userManageOverviewCardRoleText.textContent = userInfo.role;
     userManageOverviewCardLastLoginText.textContent = lastLoginFormated;
     userManageOverviewInfoNameAnswer.textContent = userInfo.name;
