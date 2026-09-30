@@ -161,6 +161,7 @@ async function manageUser(uuid) {
     }else {
         lastLoginFormated = "-"
     }
+    console.log(lastLoginFormated)
     let registerAtFormated;
     if (userInfo.registerAt !== "null"){
         const registerAt = new Date(userInfo.registerAt)
