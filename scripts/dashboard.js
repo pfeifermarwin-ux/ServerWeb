@@ -152,7 +152,7 @@ async function manageUser(uuid) {
     userManage.style.display = 'flex';
     const userInfo = await getUserInfo(uuid);
     let lastLoginFormated;
-    if (userInfo.lastLogin !== "null"){
+    if (userInfo.lastLogin !== null && userInfo.lastLogin !== undefined){
         const lastLogin = new Date(userInfo.lastlogin)
         lastLoginFormated = lastLogin.toLocaleString('de-DE', {
             dateStyle: 'medium',
@@ -163,7 +163,7 @@ async function manageUser(uuid) {
     }
     console.log(lastLoginFormated)
     let registerAtFormated;
-    if (userInfo.registerAt !== "null"){
+    if (userInfo.registerAt !== null && userInfo.registerAt !== undefined){
         const registerAt = new Date(userInfo.registerAt)
         registerAtFormated = registerAt.toLocaleString('de-DE', {
             dateStyle: 'medium',
