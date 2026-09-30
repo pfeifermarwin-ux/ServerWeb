@@ -151,16 +151,26 @@ function setMainPage(id) {
 async function manageUser(uuid) {
     userManage.style.display = 'flex';
     const userInfo = await getUserInfo(uuid);
-    const lastLogin = new Date(userInfo.lastlogin)
-    const lastLoginFormated = lastLogin.toLocaleString('de-DE', {
-        dateStyle: 'medium',
-        timeStyle: 'short'
-    });
-    const registerAt = new Date(userInfo.registerAt)
-    const registerAtFormated = registerAt.toLocaleString('de-DE', {
-        dateStyle: 'medium',
-        timeStyle: 'short'
-    })
+    let lastLoginFormated;
+    if (userInfo.lastLogin !== 'none'){
+        const lastLogin = new Date(userInfo.lastlogin)
+        lastLoginFormated = lastLogin.toLocaleString('de-DE', {
+            dateStyle: 'medium',
+            timeStyle: 'short'
+        });
+    }else {
+        lastLoginFormated = "-"
+    }
+    let registerAtFormated;
+    if (userInfo.registerAt !== 'none'){
+        const registerAt = new Date(userInfo.registerAt)
+        registerAtFormated = registerAt.toLocaleString('de-DE', {
+            dateStyle: 'medium',
+            timeStyle: 'short'
+        })
+    }else {
+        registerAtFormated = "-"
+    }
     const userManageOverviewHeadNameDivUsername = document.getElementById('userManageOverviewHeadNameDivUsername');
     const userManageOverviewHeadNameDivRegistertDivText = document.getElementById('userManageOverviewHeadNameDivRegistertDivText');
     const userManageOverviewCardRoleText = document.getElementById('userManageOverviewCardRoleText');
