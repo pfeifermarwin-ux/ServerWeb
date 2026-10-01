@@ -216,7 +216,7 @@ async function manageUser(uuid) {
     userManageOverviewInfoBirthdayAnswer.textContent = userInfo.birthdate;
     userManageOverviewInfoRegisteratAnswer.textContent = registerAtFormated
 
-    const userManageOverviewAktivitiesTable = document.getElementById('#userManageOverviewAktivitiesTable tbody');
+    const userManageOverviewAktivitiesTable = document.querySelector('#userManageOverviewAktivitiesTable tbody');
     const logs = await getLogs(uuid)
     if (!logs) {
         return;
