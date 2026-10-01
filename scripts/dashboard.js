@@ -111,6 +111,31 @@ async function getUserInfo(useruuid) {
     }
 }
 
+async function getLogs(uuid) {
+    const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/getUserLogs', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            useruuidforlog: uuid,
+            username: username,
+            token: token
+        })
+    });
+    const data = await response.json();
+    if (response.status === 200){
+        return data
+    }else {
+        let errorDetail = "Unbekannter Serverfehler";
+        try {
+            const data = await response.json();
+            errorDetail = data.detail || JSON.stringify(data);
+        } catch (e) {
+            errorDetail = await response.text();
+        }
+        await openNotification(`Error: ${response.status}`, errorDetail);
+    }
+}
+
 function openNotification(title, message) {
     return new Promise((resolve) => {
         notification.style.display = 'flex';
@@ -190,6 +215,24 @@ async function manageUser(uuid) {
     userManageOverviewInfoUuidAnswer.textContent = userInfo.useruuid;
     userManageOverviewInfoBirthdayAnswer.textContent = userInfo.birthdate;
     userManageOverviewInfoRegisteratAnswer.textContent = registerAtFormated
+
+    const userManageOverviewAktivitiesTable = document.getElementById('#userManageOverviewAktivitiesTable tbody');
+    const logs = await getLogs(uuid)
+    if (!logs) {
+        return;
+    }
+    userManageOverviewAktivitiesTable.innerHTML = "";
+    logs.logs.forEach(log => {
+        const newRow = table.insertRow()
+        newRow.insertCell(0).textContent = log.created_at;
+        newRow.insertCell(1).textContent = log.level;
+        newRow.insertCell(2).textContent = log.path;
+        newRow.insertCell(3).textContent = log.message;
+
+        newRow.onclick = () => {
+            openLog(log.loguuid)
+        };
+    });
 }
 
 profileBTN.addEventListener('click', () => {
