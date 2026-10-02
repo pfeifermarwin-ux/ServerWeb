@@ -1033,23 +1033,23 @@
 
 .userManageOverviewAktivitiesTableLevelWarning{
     background-color: orange;
-    border-radius: 10px;
+    border-radius: 5px;
     border: #ffffff0a solid 1px;
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    color: #ffffff8a;
+    color: #252525ab;
 }
 
 .userManageOverviewAktivitiesTableLevelError{
     background-color: darkred;
-    border-radius: 10px;
+    border-radius: 5px;
     border: #ffffff0a solid 1px;
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    color: #ffffff8a;
+    color: #252525ab;
 }
 
 .userManageOverviewAktivitiesTableLevelInfo{
     background-color: lightblue;
-    border-radius: 10px;
+    border-radius: 5px;
     border: #3636360a solid 1px;
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: #252525ab;
