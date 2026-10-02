@@ -1033,4 +1033,24 @@
 
 .userManageOverviewAktivitiesTableLevelWarning{
     background-color: orange;
+    border-radius: 10px;
+    border: #ffffff0a solid 1px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff8a;
+}
+
+.userManageOverviewAktivitiesTableLevelError{
+    background-color: darkred;
+    border-radius: 10px;
+    border: #ffffff0a solid 1px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff8a;
+}
+
+.userManageOverviewAktivitiesTableLevelInfo{
+    background-color: lightblue;
+    border-radius: 10px;
+    border: #ffffff0a solid 1px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff8a;
 }

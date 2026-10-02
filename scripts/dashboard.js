@@ -222,9 +222,14 @@ async function manageUser(uuid) {
     }
     userManageOverviewAktivitiesTable.innerHTML = "";
     logs.logs.forEach(log => {
+        const createdAtUnf = new Date(log.created_at);
+        const createdAtFor = createdAtUnf.toLocaleString('de-DE', {
+            dateStyle: 'medium',
+            timeStyle: 'short'
+        })
         const newRow = userManageOverviewAktivitiesTable.insertRow()
         const createdat = newRow.insertCell(0);
-        createdat.textContent = log.created_at;
+        createdat.textContent = createdAtFor;
         const level = newRow.insertCell(1);
         level.textContent = log.level;
         newRow.insertCell(2).textContent = log.path;
@@ -233,6 +238,12 @@ async function manageUser(uuid) {
         createdat.classList.add("userManageOverviewAktivitiesTableCreatedat");
         if (log.level === "WARNING"){
             level.classList.add("userManageOverviewAktivitiesTableLevelWarning");
+        }
+        if (log.level == "ERROR"){
+            level.classList.add("userManageOverviewAktivitiesTableLevelError");
+        }
+        if (log.level == "INFO"){
+            level.classList.add("userManageOverviewAktivitiesTableLevelInfo");
         }
         newRow.onclick = () => {
             openLog(log.loguuid)
