@@ -1030,7 +1030,7 @@
 
 .userManageOverviewAktivitiesTableRow{
     border: #ffffff0a solid 1px;
-    padding: 8px;
+    /* padding: 8px; */
 }
 
 .userManageOverviewAktivitiesTableLevelWarning{
