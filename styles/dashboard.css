@@ -1074,3 +1074,26 @@
     color: #ffff;
     font-size: 12px;
 }
+
+.logInspect{
+    display: none;
+    font-display: flex;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);    
+}
+
+.logInspectPopup{
+    background-color: #031121;
+    width: 50%;
+    height: 50%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 1%;
+    border: #ffffff0a solid 1px;
+}
