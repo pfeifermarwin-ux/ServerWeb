@@ -994,8 +994,14 @@
 
 .userManageOverviewAktivitiesTable{
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0 10px;
     overflow: hidden;
+}
+
+.userManageOverviewAktivitiesTable td, th {
+    padding: 8px;
+    background-color: #f0f0f0;
 }
 
 .userManageOverviewAktivitiesTableCreatedat{
@@ -1037,7 +1043,6 @@
     border: #ffffff0a solid 1px;
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: #252525ab;
-    margin: 20px;
 }
 
 .userManageOverviewAktivitiesTableLevelError{
@@ -1046,7 +1051,6 @@
     border: #ffffff0a solid 1px;
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: #252525ab;
-    margin: 20px;
 }
 
 .userManageOverviewAktivitiesTableLevelInfo{
@@ -1055,5 +1059,4 @@
     border: #3636360a solid 1px;
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: #7c7c7cab;
-    margin: 20px;
 }
