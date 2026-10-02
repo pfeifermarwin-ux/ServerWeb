@@ -999,6 +999,5 @@
     max-height: 85%;
     max-width: 100%;
     border-collapse: collapse;
-    overflow-y: auto;
-    overflow-x: auto;
+    overflow: hidden;
 }
