@@ -999,10 +999,10 @@
     overflow: hidden;
 }
 
-.userManageOverviewAktivitiesTable td, th {
+/* .userManageOverviewAktivitiesTable td, th {
     padding: 8px;
     background-color: #f0f0f0;
-}
+} */
 
 .userManageOverviewAktivitiesTableCreatedat{
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -1035,6 +1035,8 @@
 
 .userManageOverviewAktivitiesTableRow{
     border: #ffffff0a solid 1px;
+    padding: 8px;
+    background-color: #f0f0f0;
 }
 
 .userManageOverviewAktivitiesTableLevelWarning{
