@@ -998,6 +998,10 @@
     overflow: hidden;
 }
 
+.userManageOverviewAktivitiesTable td{
+    padding: 14px 15px;
+}
+
 .userManageOverviewAktivitiesTableCreatedat{
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: #ffffff8a;
