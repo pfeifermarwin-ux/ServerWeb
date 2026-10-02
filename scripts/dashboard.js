@@ -228,6 +228,7 @@ async function manageUser(uuid) {
         newRow.insertCell(1).textContent = log.level;
         newRow.insertCell(2).textContent = log.path;
         newRow.insertCell(3).textContent = log.message;
+        newRow.classList.add("userManageOverviewAktivitiesTableRow")
         newRow.onclick = () => {
             openLog(log.loguuid)
         };

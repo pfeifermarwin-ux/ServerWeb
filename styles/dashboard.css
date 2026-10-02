@@ -1001,3 +1001,27 @@
 .userManageOverviewAktivitiesTableCreatedat{
 
 }
+
+.userManageOverviewAktivitiesTableDateTimeHead{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff8a;
+}
+
+.userManageOverviewAktivitiesTableTypeHead{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff8a;
+}
+
+.userManageOverviewAktivitiesTableInfoHead{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff8a;
+}
+
+.userManageOverviewAktivitiesTableDetailsHead{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff8a;
+}
+
+.userManageOverviewAktivitiesTableRow{
+    border: #ffffff0a solid 1px;
+}
