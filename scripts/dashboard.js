@@ -221,7 +221,7 @@ async function manageUser(uuid) {
         return;
     }
     userManageOverviewAktivitiesTable.innerHTML = "";
-    logs.logs.forEach(log => {
+    logs.logs.reverse().forEach(log => {
         const createdAtUnf = new Date(log.created_at);
         const createdAtFor = createdAtUnf.toLocaleString('de-DE', {
             dateStyle: 'medium',
