@@ -1029,10 +1029,11 @@
 
 .userManageOverviewAktivitiesTableRow{
     border: #ffffff0a solid 1px;
+    margin-bottom: 1%;
 }
 
 .userManageOverviewAktivitiesTableLevelWarning{
-    background-color: orange;
+    background-color: darkorange;
     border-radius: 5px;
     border: #ffffff0a solid 1px;
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
@@ -1048,7 +1049,7 @@
 }
 
 .userManageOverviewAktivitiesTableLevelInfo{
-    background-color: lightblue;
+    background-color: darkblue;
     border-radius: 5px;
     border: #3636360a solid 1px;
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
