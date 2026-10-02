@@ -1076,8 +1076,8 @@
 }
 
 .logInspect{
-    display: none;
-    font-display: flex;
+    /* display: none; */
+    display: flex;
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
@@ -1089,11 +1089,116 @@
 
 .logInspectPopup{
     background-color: #031121;
-    width: 50%;
+    width: 40%;
     height: 50%;
     border-radius: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 1%;
     border: #ffffff0a solid 1px;
+}
+
+.logInspectHeader{
+    background-color: #0b1c2a;
+    height: 20%;
+    margin: 1%;
+    border-radius: 10px;
+    border: #ffffff0a solid 1px;
+    display: flex;
+    flex-direction: row;
+    width: auto;
+}
+
+.logInspectMetadataView{
+    background-color: #0b1c2a;
+    height: 80%;
+    margin: 0 1% 1% 1%;
+    border-radius: 10px;
+    border: #ffffff0a solid 1px;
+    display: flex;
+    flex-direction: row;
+    width: auto;
+}
+
+.logInspectLevelWarning{
+    background-color: rgb(226, 141, 37);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffff;
+    margin: 1%;
+    width: 20%;
+    border-radius: 10px;
+    border: #ffffff28 solid 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    box-shadow: 0 0 5px rgba(226, 141, 37, 0.6), 
+                0 0 5px rgba(226, 141, 37, 0.3);
+}
+
+.logInspectDeleteButtonText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ff0000;
+    text-align: center;
+    margin: auto;
+    margin-left: 5%;
+}
+
+.logInspectDeleteButtonIcon{
+    height: 90%;
+    margin: 1%;
+    filter: brightness(0) saturate(100%) invert(17%) sepia(97%) saturate(6455%) hue-rotate(357deg) brightness(94%) contrast(114%);
+}
+
+.logInspectDeleteButton{
+    background-color: #ff000059;
+    border-radius: 5px;
+    border: #ff000028 solid 2px;
+    width: 20%;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    margin: 1%;
+    margin-left: auto;
+    margin-right: 1%;
+    box-shadow: 0 0 5px rgba(226, 40, 40, 0.6), 
+                0 0 5px rgba(226, 40, 40, 0.3);
+}
+
+.userManageOverviewHeadBlockButtonIcon{
+    height: 90%;
+    margin: 1%;
+    filter: brightness(0) saturate(100%) invert(17%) sepia(97%) saturate(6455%) hue-rotate(357deg) brightness(94%) contrast(114%);
+}
+
+.logInspectLevelInfo{
+    background-color: rgb(37, 137, 226);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffff;
+    margin: 1%;
+    width: 20%;
+    border-radius: 10px;
+    border: #ffffff28 solid 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    box-shadow: 0 0 5px rgba(37, 137, 226, 0.6), 
+                0 0 5px rgba(37, 137, 226, 0.3);
+}
+
+.logInspectLevelError{
+    background-color: rgb(226, 40, 40);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffff;
+    margin: 1%;
+    width: 20%;
+    border-radius: 10px;
+    border: #ffffff28 solid 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    box-shadow: 0 0 5px rgba(226, 40, 40, 0.6), 
+                0 0 5px rgba(226, 40, 40, 0.3);
 }
