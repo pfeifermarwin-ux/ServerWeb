@@ -232,7 +232,9 @@ async function manageUser(uuid) {
         createdat.textContent = createdAtFor;
         const level = newRow.insertCell(1);
         level.textContent = log.level;
-        newRow.insertCell(2).textContent = log.path;
+        const path = newRow.insertCell(2);
+        path.textContent = log.path;
+        path.classList.add("userManageOverviewAktivitiesTablePath")
         newRow.insertCell(3).textContent = log.message;
         newRow.classList.add("userManageOverviewAktivitiesTableRow");
         createdat.classList.add("userManageOverviewAktivitiesTableCreatedat");

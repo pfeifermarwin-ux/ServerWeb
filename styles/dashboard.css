@@ -1056,3 +1056,11 @@
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: #ffff;
 }
+
+.userManageOverviewAktivitiesTablePath{
+    background-color: #132b44;
+    border-radius: 5px;
+    border: #ffffff28 solid 2px;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffff;
+}
