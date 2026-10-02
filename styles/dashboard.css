@@ -1001,6 +1001,7 @@
 .userManageOverviewAktivitiesTableCreatedat{
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: #ffffff8a;
+    margin: 20px;
 }
 
 .userManageOverviewAktivitiesTableDateTimeHead{
@@ -1029,7 +1030,6 @@
 
 .userManageOverviewAktivitiesTableRow{
     border: #ffffff0a solid 1px;
-    padding: 14px 15px;
 }
 
 .userManageOverviewAktivitiesTableLevelWarning{
