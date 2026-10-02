@@ -995,7 +995,7 @@
 .userManageOverviewAktivitiesTable{
     width: 100%;
     border-collapse: separate;
-    border-spacing: 0 5px;
+    border-spacing: 2px 5px;
     overflow: hidden;
 }
 
