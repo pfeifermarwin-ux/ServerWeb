@@ -235,7 +235,9 @@ async function manageUser(uuid) {
         const path = newRow.insertCell(2);
         path.textContent = log.path;
         path.classList.add("userManageOverviewAktivitiesTablePath")
-        newRow.insertCell(3).textContent = log.message;
+        const message = newRow.insertCell(3);
+        message.textContent = log.message;
+        message.classList.add("userManageOverviewAktivitiesTableMessage");
         newRow.classList.add("userManageOverviewAktivitiesTableRow");
         createdat.classList.add("userManageOverviewAktivitiesTableCreatedat");
         if (log.level === "WARNING"){
