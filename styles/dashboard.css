@@ -999,29 +999,38 @@
 }
 
 .userManageOverviewAktivitiesTableCreatedat{
-
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff8a;
 }
 
 .userManageOverviewAktivitiesTableDateTimeHead{
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: #ffffff8a;
+    text-align: center;
 }
 
 .userManageOverviewAktivitiesTableTypeHead{
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: #ffffff8a;
+    text-align: center;
 }
 
 .userManageOverviewAktivitiesTableInfoHead{
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: #ffffff8a;
+    text-align: center;
 }
 
 .userManageOverviewAktivitiesTableDetailsHead{
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: #ffffff8a;
+    text-align: center;
 }
 
 .userManageOverviewAktivitiesTableRow{
     border: #ffffff0a solid 1px;
+}
+
+.userManageOverviewAktivitiesTableLevelWarning{
+    background-color: orange;
 }

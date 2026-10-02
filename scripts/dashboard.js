@@ -225,10 +225,15 @@ async function manageUser(uuid) {
         const newRow = userManageOverviewAktivitiesTable.insertRow()
         const createdat = newRow.insertCell(0);
         createdat.textContent = log.created_at;
-        newRow.insertCell(1).textContent = log.level;
+        const level = newRow.insertCell(1);
+        level.textContent = log.level;
         newRow.insertCell(2).textContent = log.path;
         newRow.insertCell(3).textContent = log.message;
-        newRow.classList.add("userManageOverviewAktivitiesTableRow")
+        newRow.classList.add("userManageOverviewAktivitiesTableRow");
+        createdat.classList.add("userManageOverviewAktivitiesTableCreatedat");
+        if (log.level === "WARNING"){
+            level.classList.add("userManageOverviewAktivitiesTableLevelWarning");
+        }
         newRow.onclick = () => {
             openLog(log.loguuid)
         };
