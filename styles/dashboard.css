@@ -997,3 +997,7 @@
     border-collapse: collapse;
     overflow: hidden;
 }
+
+.userManageOverviewAktivitiesTableCreatedat{
+    background-color: red;
+}
