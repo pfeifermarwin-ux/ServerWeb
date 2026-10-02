@@ -223,12 +223,12 @@ async function manageUser(uuid) {
     userManageOverviewAktivitiesTable.innerHTML = "";
     logs.logs.forEach(log => {
         const newRow = userManageOverviewAktivitiesTable.insertRow()
-        const createdat = newRow.insertCell(0).textContent;
+        const createdat = newRow.insertCell(0);
         createdat.textContent = log.created_at;
-        createdat.classList.add("userManageOverviewAktivitiesTableCreatedat")
         newRow.insertCell(1).textContent = log.level;
         newRow.insertCell(2).textContent = log.path;
         newRow.insertCell(3).textContent = log.message;
+        createdat.classList.add("userManageOverviewAktivitiesTableCreatedat")
         newRow.onclick = () => {
             openLog(log.loguuid)
         };
