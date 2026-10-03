@@ -1109,14 +1109,14 @@
     width: auto;
 }
 
-.logInspectMetadataView{
+.logInspectView{
     background-color: #0b1c2a;
     height: 80%;
     margin: 0 1% 1% 1%;
     border-radius: 10px;
     border: #ffffff0a solid 1px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: auto;
 }
 
@@ -1201,4 +1201,97 @@
     font-size: 20px;
     box-shadow: 0 0 5px rgba(226, 40, 40, 0.6), 
                 0 0 5px rgba(226, 40, 40, 0.3);
+}
+
+.logInspectMetadataCategory{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff8a;
+    margin-left: 2%;
+    width: 30%;
+}
+
+.logInspectMessage{
+    background-color: #18364e;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffff;
+    margin: 1%;
+    height: 30%;
+    border-radius: 10px;
+    border: #ffffff28 solid 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    box-shadow: 0 0 5px rgba(43, 92, 132, 0.5), 
+                0 0 5px rgba(43, 92, 132, 0.25);
+}
+
+.logInspectPath{
+    background-color: #18364e;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffff;
+    margin: 1%;
+    border-radius: 10px;
+    border: #ffffff28 solid 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    box-shadow: 0 0 5px rgba(43, 92, 132, 0.5), 
+                0 0 5px rgba(43, 92, 132, 0.25); 
+}
+
+.logInspectCode{
+    background-color: #18364e;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffff;
+    margin: 1%;
+    border-radius: 10px;
+    border: #ffffff28 solid 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 15px;
+    box-shadow: 0 0 5px rgba(43, 92, 132, 0.5), 
+                0 0 5px rgba(43, 92, 132, 0.25); 
+}
+
+.logInspectLogUUID{
+    background-color: #18364e;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffff;
+    margin: 1%;
+    margin-left: auto;
+    border-radius: 10px;
+    border: #ffffff28 solid 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 15px;
+    box-shadow: 0 0 5px rgba(43, 92, 132, 0.5), 
+                0 0 5px rgba(43, 92, 132, 0.25); 
+}
+
+.logInspectMetadataView{
+    background-color: #08131b;
+    height: 80%;
+    margin: 0 1% 1% 1%;
+    border-radius: 10px;
+    border: #ffffff0a solid 1px;
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.logInspectMetadataView{
+    height: 100%;
+    width: auto;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffff;
+    scrollbar-width: none;
 }

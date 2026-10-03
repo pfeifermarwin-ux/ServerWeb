@@ -255,6 +255,21 @@ async function manageUser(uuid) {
     });
 }
 
+async function openLog(loguuid) {
+    const logInspect = document.getElementById('logInspect');
+    logInspect.style.display = 'flex';
+    const logLevel = 'WARNING';
+    const message = ''
+    const logInspectLevel = document.getElementById('logInspectLevel');
+    if (logLevel === 'INFO'){
+        logInspectLevel.classList.add('logInspectLevelInfo');
+    }else if(logLevel === 'WARNING') {
+        logInspectLevel.classList.add('logInspectLevelWarning')
+    }else if(logLevel === 'ERROR') {
+        logInspectLevel.classList.add('logInspectLevelError')
+    }
+}
+
 profileBTN.addEventListener('click', () => {
     toggleDropdown()
 });
