@@ -21,6 +21,7 @@ const notificationCloseBTN2 = document.getElementById('notificationCloseBTN2');
 const siteBarManageUserBTN = document.getElementById('siteBarManageUserBTN')
 const overviewButton = document.getElementById('overviewButton')
 const userManage = document.getElementById('userManage')
+const logInspect = document.getElementById('logInspect');
 
 
 async function checkTokenValidity() {
@@ -256,18 +257,39 @@ async function manageUser(uuid) {
 }
 
 async function openLog(loguuid) {
-    const logInspect = document.getElementById('logInspect');
     logInspect.style.display = 'flex';
     const logLevel = 'WARNING';
-    const message = ''
+    const message = 'Get user_info request'
+    const path = '/get_user_info'
+    const code = '200'
+    const loguuida = '006003a9-533b-4220-bf8b-1c9d8fe13634'
+    const metadata = {
+        "request": {
+            "method": "POST",
+            "url": "/get_user_info"
+        }
+    };
     const logInspectLevel = document.getElementById('logInspectLevel');
     if (logLevel === 'INFO'){
         logInspectLevel.classList.add('logInspectLevelInfo');
+        logInspectLevel.textContent = 'INFO';
     }else if(logLevel === 'WARNING') {
         logInspectLevel.classList.add('logInspectLevelWarning')
+        logInspectLevel.textContent = 'WARNING';
     }else if(logLevel === 'ERROR') {
         logInspectLevel.classList.add('logInspectLevelError')
+        logInspectLevel.textContent = 'ERROR';
     }
+    const logInspectMessage = document.getElementById('logInspectMessage');
+    logInspectMessage.textContent = message;
+    const logInspectPath = document.getElementById('logInspectPath');
+    logInspectPath.textContent = path;
+    const logInspectCode = document.getElementById('logInspectCode');
+    logInspectCode.textContent = `Status Code: ${code}`;
+    const logInspectLogUUID = document.getElementById('logInspectLogUUID');
+    logInspectLogUUID.textContent = `Log UUID: ${loguuida}`;
+    const logInspectMetadataViewCode = document.getElementById('logInspectMetadataViewCode');
+    logInspectMetadataViewCode.textContent = JSON.stringify(metadata, null, 2);
 }
 
 profileBTN.addEventListener('click', () => {
@@ -328,6 +350,9 @@ site.addEventListener('click', function(event){
     if (event.target == userManage && userManage.contains(event.target)){
         userManage.style.display = 'none';
     };
+    if (event.target == logInspect && logInspect.contains(event.target)){
+        logInspect.style.display = 'none';
+    }
 });
 // loginStatus === 'true''
 (async () => {
