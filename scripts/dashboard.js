@@ -288,13 +288,16 @@ async function openLog(loguuid) {
     console.log(LogData);
     const logInspectLevel = document.getElementById('logInspectLevel');
     if (logLevel === 'INFO'){
-        logInspectLevel.classList.set('logInspectLevelInfo');
+        logInspectLevel.classList.remove('logInspectLevelWarning', 'logInspectLevelError');
+        logInspectLevel.classList.add('logInspectLevelInfo');
         logInspectLevel.textContent = 'INFO';
     }else if(logLevel === 'WARNING') {
-        logInspectLevel.classList.set('logInspectLevelWarning')
+        logInspectLevel.classList.remove('logInspectLevelInfo', 'logInspectLevelError');
+        logInspectLevel.classList.add('logInspectLevelWarning')
         logInspectLevel.textContent = 'WARNING';
     }else if(logLevel === 'ERROR') {
-        logInspectLevel.classList.set('logInspectLevelError')
+        logInspectLevel.classList.remove('logInspectLevelInfo', 'logInspectLevelWarning');
+        logInspectLevel.classList.add('logInspectLevelError')
         logInspectLevel.textContent = 'ERROR';
     }
     const logInspectMessage = document.getElementById('logInspectMessage');
