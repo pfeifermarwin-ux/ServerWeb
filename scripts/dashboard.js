@@ -285,6 +285,7 @@ async function openLog(loguuid) {
     const path = LogData.path;
     const code = LogData.code;
     const metadata = LogData.metadata;
+    console.log(LogData);
     const logInspectLevel = document.getElementById('logInspectLevel');
     if (logLevel === 'INFO'){
         logInspectLevel.classList.add('logInspectLevelInfo');
