@@ -158,6 +158,48 @@ async function getLog(loguuid) {
     }
 }
 
+async function blockUser(uuid) {
+    const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/block_user', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({useruuidToBlock: uuid, username: username, token: token})
+    });
+    const data = await response.json();
+    if (response.status === 200){
+        await openNotification("Success", data.detail)
+    }else {
+        let errorDetail = "Unbekannter Serverfehler";
+        try {
+            const data = await response.json();
+            errorDetail = data.detail || JSON.stringify(data);
+        } catch (e) {
+            errorDetail = await response.text();
+        }
+        await openNotification(`Error: ${response.status}`, errorDetail);
+    }
+};
+
+async function unblockUser(uuid) {
+    const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/unblock_user', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({useruuidToUnblock: uuid, username: username, token: token})
+    });
+    const data = await response.json();
+    if (response.status === 200){
+        await openNotification("Success", data.detail)
+    }else {
+        let errorDetail = "Unbekannter Serverfehler";
+        try {
+            const data = await response.json();
+            errorDetail = data.detail || JSON.stringify(data);
+        } catch (e) {
+            errorDetail = await response.text();
+        }
+        await openNotification(`Error: ${response.status}`, errorDetail);
+    }
+};
+
 function openNotification(title, message) {
     return new Promise((resolve) => {
         notification.style.display = 'flex';
