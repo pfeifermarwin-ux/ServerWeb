@@ -279,7 +279,7 @@ async function manageUser(uuid) {
 
 async function openLog(loguuid) {
     logInspect.style.display = 'flex';
-    const LogData = getLog(loguuid);
+    const LogData = await getLog(loguuid);
     const logLevel = LogData.level;
     const message = LogData.message;
     const path = LogData.path;
