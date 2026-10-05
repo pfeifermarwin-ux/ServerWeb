@@ -280,11 +280,11 @@ async function manageUser(uuid) {
 async function openLog(loguuid) {
     logInspect.style.display = 'flex';
     const LogData = await getLog(loguuid);
-    const logLevel = LogData.level;
-    const message = LogData.message;
-    const path = LogData.path;
-    const code = LogData.code;
-    const metadata = LogData.metadata;
+    const logLevel = LogData.log.level;
+    const message = LogData.log.message;
+    const path = LogData.log.path;
+    const code = LogData.log.code;
+    const metadata = LogData.log.metadata;
     console.log(LogData);
     const logInspectLevel = document.getElementById('logInspectLevel');
     if (logLevel === 'INFO'){
