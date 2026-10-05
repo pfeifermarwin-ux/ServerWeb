@@ -223,6 +223,7 @@ async function manageUser(uuid) {
         document.getElementById('userManageOverviewHeadBlockButton').classList.add("userManageOverviewHeadBlockButton");
         document.getElementById('userManageOverviewHeadBlockButtonIcon').classList.remove("userManageOverviewHeadUnblockButtonIcon");
         document.getElementById('userManageOverviewHeadBlockButtonIcon').classList.add("userManageOverviewHeadBlockButtonIcon");
+        document.getElementById('userManageOverviewHeadBlockButtonIcon').src = "assets/lock_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg";
         document.getElementById('userManageOverviewHeadBlockButtonText').classList.remove("userManageOverviewHeadUnblockButtonText");
         document.getElementById('userManageOverviewHeadBlockButtonText').classList.add("userManageOverviewHeadBlockButtonText");
         document.getElementById('userManageOverviewHeadBlockButtonText').textContent = "Block User";
@@ -235,6 +236,7 @@ async function manageUser(uuid) {
         document.getElementById('userManageOverviewHeadBlockButton').classList.add("userManageOverviewHeadUnblockButton");
         document.getElementById('userManageOverviewHeadBlockButtonIcon').classList.remove("userManageOverviewHeadBlockButtonIcon");
         document.getElementById('userManageOverviewHeadBlockButtonIcon').classList.add("userManageOverviewHeadUnblockButtonIcon");
+        document.getElementById('userManageOverviewHeadBlockButtonIcon').src = "assets/lock_open_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg";
         document.getElementById('userManageOverviewHeadBlockButtonText').textContent = "Unblock User";
         document.getElementById('userManageOverviewHeadBlockButtonText').classList.remove("userManageOverviewHeadBlockButtonText");
         document.getElementById('userManageOverviewHeadBlockButtonText').classList.add("userManageOverviewHeadUnblockButtonText");
