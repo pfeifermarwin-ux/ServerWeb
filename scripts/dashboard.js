@@ -218,6 +218,31 @@ async function manageUser(uuid) {
     }else {
         registerAtFormated = "-"
     }
+    if (userInfo.isblocked === false){
+        document.getElementById('userManageOverviewHeadBlockButton').classList.remove("userManageOverviewHeadUnblockButton");
+        document.getElementById('userManageOverviewHeadBlockButton').classList.add("userManageOverviewHeadBlockButton");
+        document.getElementById('userManageOverviewHeadBlockButtonIcon').classList.remove("userManageOverviewHeadUnblockButtonIcon");
+        document.getElementById('userManageOverviewHeadBlockButtonIcon').classList.add("userManageOverviewHeadBlockButtonIcon");
+        document.getElementById('userManageOverviewHeadBlockButtonText').classList.remove("userManageOverviewHeadUnblockButtonText");
+        document.getElementById('userManageOverviewHeadBlockButtonText').classList.add("userManageOverviewHeadBlockButtonText");
+        document.getElementById('userManageOverviewHeadBlockButtonText').textContent = "Block User";
+        document.getElementById('userManageOverviewHeadBlockButton').onclick = async () => {
+            await blockUser(uuid);
+            await manageUser(uuid);
+        }
+    }else {
+        document.getElementById('userManageOverviewHeadBlockButton').classList.remove("userManageOverviewHeadBlockButton");
+        document.getElementById('userManageOverviewHeadBlockButton').classList.add("userManageOverviewHeadUnblockButton");
+        document.getElementById('userManageOverviewHeadBlockButtonIcon').classList.remove("userManageOverviewHeadBlockButtonIcon");
+        document.getElementById('userManageOverviewHeadBlockButtonIcon').classList.add("userManageOverviewHeadUnblockButtonIcon");
+        document.getElementById('userManageOverviewHeadBlockButtonText').textContent = "Unblock User";
+        document.getElementById('userManageOverviewHeadBlockButtonText').classList.remove("userManageOverviewHeadBlockButtonText");
+        document.getElementById('userManageOverviewHeadBlockButtonText').classList.add("userManageOverviewHeadUnblockButtonText");
+        document.getElementById('userManageOverviewHeadBlockButton').onclick = async () => {
+            await unblockUser(uuid);
+            await manageUser(uuid);
+        }
+    }
     const userManageOverviewHeadNameDivUsername = document.getElementById('userManageOverviewHeadNameDivUsername');
     const userManageOverviewHeadNameDivRegistertDivText = document.getElementById('userManageOverviewHeadNameDivRegistertDivText');
     const userManageOverviewCardRoleText = document.getElementById('userManageOverviewCardRoleText');
@@ -285,7 +310,6 @@ async function openLog(loguuid) {
     const path = LogData.log.path;
     const code = LogData.log.code;
     const metadata = LogData.log.metadata;
-    console.log(LogData);
     const logInspectLevel = document.getElementById('logInspectLevel');
     if (logLevel === 'INFO'){
         logInspectLevel.classList.remove('logInspectLevelWarning', 'logInspectLevelError');

@@ -695,7 +695,7 @@
 
 .userManage{
     display: none;
-    /* display: flex; */
+    display: flex;
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
@@ -911,6 +911,32 @@
     display: flex;
     flex-direction: row;
     margin-left: 1%;
+}
+
+.userManageOverviewHeadUnblockButton{
+    background-color: #2bff0059;
+    border-radius: 5px;
+    border: #00ff1528 solid 2px;
+    height: 30%;
+    width: 15%;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    margin-left: 1%;
+}
+
+.userManageOverviewHeadUnblockButtonIcon{
+    height: 90%;
+    margin: 1%;
+    filter: invert(53%) sepia(91%) saturate(2853%) hue-rotate(92deg) brightness(115%) contrast(127%);
+}
+
+.userManageOverviewHeadUnblockButtonText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #2bff00;
+    text-align: center;
+    margin: auto;
+    margin-left: 5%;
 }
 
 .userManageOverviewHeadBlockButtonIcon{
