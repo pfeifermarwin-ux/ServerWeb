@@ -137,6 +137,27 @@ async function getLogs(uuid) {
     }
 }
 
+async function getLog(loguuid) {
+    const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/get_log_by_loguuid', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({loguuid: loguuid, username: username, token: token})
+    });
+    const data = await response.json();
+    if (response.status === 200){
+        return data
+    }else {
+        let errorDetail = "Unbekannter Serverfehler";
+        try {
+            const data = await response.json();
+            errorDetail = data.detail || JSON.stringify(data);
+        } catch (e) {
+            errorDetail = await response.text();
+        }
+        await openNotification(`Error: ${response.status}`, errorDetail);
+    }
+}
+
 function openNotification(title, message) {
     return new Promise((resolve) => {
         notification.style.display = 'flex';
@@ -258,17 +279,12 @@ async function manageUser(uuid) {
 
 async function openLog(loguuid) {
     logInspect.style.display = 'flex';
-    const logLevel = 'WARNING';
-    const message = 'Get user_info request'
-    const path = '/get_user_info'
-    const code = '200'
-    const loguuida = '006003a9-533b-4220-bf8b-1c9d8fe13634'
-    const metadata = {
-        "request": {
-            "method": "POST",
-            "url": "/get_user_info"
-        }
-    };
+    const LogData = getLog(loguuid);
+    const logLevel = LogData.level;
+    const message = LogData.message;
+    const path = LogData.path;
+    const code = LogData.code;
+    const metadata = LogData.metadata;
     const logInspectLevel = document.getElementById('logInspectLevel');
     if (logLevel === 'INFO'){
         logInspectLevel.classList.add('logInspectLevelInfo');
@@ -287,7 +303,7 @@ async function openLog(loguuid) {
     const logInspectCode = document.getElementById('logInspectCode');
     logInspectCode.textContent = `Status Code: ${code}`;
     const logInspectLogUUID = document.getElementById('logInspectLogUUID');
-    logInspectLogUUID.textContent = `Log UUID: ${loguuida}`;
+    logInspectLogUUID.textContent = `Log UUID: ${loguuid}`;
     const logInspectMetadataViewCode = document.getElementById('logInspectMetadataViewCode');
     logInspectMetadataViewCode.textContent = JSON.stringify(metadata, null, 2);
 }
