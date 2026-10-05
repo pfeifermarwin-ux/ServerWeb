@@ -166,7 +166,7 @@ async function blockUser(uuid) {
     });
     const data = await response.json();
     if (response.status === 200){
-        await openNotification("Success", data.detail)
+        return
     }else {
         let errorDetail = "Unbekannter Serverfehler";
         try {
@@ -187,7 +187,7 @@ async function unblockUser(uuid) {
     });
     const data = await response.json();
     if (response.status === 200){
-        await openNotification("Success", data.detail)
+        return
     }else {
         let errorDetail = "Unbekannter Serverfehler";
         try {
