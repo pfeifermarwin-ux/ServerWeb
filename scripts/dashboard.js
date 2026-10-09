@@ -445,7 +445,7 @@ site.addEventListener('click', function(event){
 // loginStatus === 'true''
 (async () => {
     if (loginStatus === 'true') {
-        checkTokenValidity();
+        await checkTokenValidity();
         setMainPage("overviewSite")
         const role = await getRole();
         if (role !== 'ADMIN') {
