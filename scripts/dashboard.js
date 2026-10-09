@@ -19,9 +19,10 @@ const notificationMessage = document.getElementById('notificationMessage');
 const notificationCloseBTN = document.getElementById('notificationCloseBTN');
 const notificationCloseBTN2 = document.getElementById('notificationCloseBTN2');
 const siteBarManageUserBTN = document.getElementById('siteBarManageUserBTN')
-const overviewButton = document.getElementById('overviewButton')
-const userManage = document.getElementById('userManage')
+const overviewButton = document.getElementById('overviewButton');
+const userManage = document.getElementById('userManage');
 const logInspect = document.getElementById('logInspect');
+const changePassword = document.getElementById('changePassword');
 
 
 async function checkTokenValidity() {
@@ -440,6 +441,9 @@ site.addEventListener('click', function(event){
     };
     if (event.target == logInspect && logInspect.contains(event.target)){
         logInspect.style.display = 'none';
+    }
+    if (event.target == changePassword && logInspect.contains(event.target)){
+        changePassword.style.display = 'none';
     }
 });
 // loginStatus === 'true''
