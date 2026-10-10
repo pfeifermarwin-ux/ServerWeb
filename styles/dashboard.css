@@ -558,6 +558,7 @@
     align-items: center;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    z-index: 9999;
 }
 
 .notificationPopup{
@@ -568,7 +569,6 @@
     display: flex;
     flex-direction: column;
     gap: 1%;
-    z-index: 10;
 }
 
 .notificationTitle{
@@ -1512,4 +1512,161 @@
     margin-right: auto;
     margin-bottom: 2%;
     font-weight: bold;
+}
+
+.changeOtherPassword{
+    display: none;
+    /* display: flex; */
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);    
+}
+
+.changeOtherPasswordPopup{
+    background-color: #031121;
+    width: 20%;
+    height: 50%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1%;
+    border: #ffffff0a solid 1px;
+}
+
+.changeOtherPasswordTitle{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffff;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.changeOtherPasswordNewPassword{
+    width: 60%;
+    height: 7%;
+    background-color: #0a233f;
+    border-radius: 10px;
+    box-sizing: border-box; 
+    padding: 10px;
+    color: #ffffff;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 14px;
+    transition: border 0.3s ease;
+    outline: none;
+    border: 2px solid transparent; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1%;
+    border: #ffffff0a solid 1px;
+}
+
+.changeOtherPasswordNewPassword::placeholder {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #b9bbbe;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.changeOtherPasswordNewPassword:focus::placeholder{
+    color: transparent;
+}
+
+.changeOtherPasswordRepeatNewPassword{
+    width: 60%;
+    height: 7%;
+    background-color: #0a233f;
+    border-radius: 10px;
+    box-sizing: border-box; 
+    padding: 10px;
+    color: #ffffff;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 14px;
+    transition: border 0.3s ease;
+    outline: none;
+    border: 2px solid transparent; 
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    border: #ffffff0a solid 1px;
+}
+
+.changeOtherPasswordRepeatNewPassword::placeholder {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #b9bbbe;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.changeOtherPasswordRepeatNewPassword:focus::placeholder{
+    color: transparent;
+}
+
+.changeOtherPasswordApplyButton {
+    width: 60%;
+    height: 7%;
+    background-color: #7289da;
+    border-radius: 10px;
+    color: #ffffff;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1%;
+    border: #ffffff0a solid 1px;
+}
+
+.changeOtherPasswordApplyButton:hover {
+    background-color: #5b6eae;
+}
+
+.changeOtherPasswordApplyButton:active {
+    background-color: #4a5b8c;
+}
+
+.changeOtherPasswordCancelButton {
+    width: 60%;
+    height: 7%;
+    background-color: #7289da;
+    border-radius: 10px;
+    color: #ffffff;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+    border: #ffffff0a solid 1px;
+}
+
+.changeOtherPasswordCancelButton:hover {
+    background-color: #5b6eae;
+}
+
+.changeOtherPasswordCancelButton:active {
+    background-color: #4a5b8c;
+}
+
+.changeOtherPasswordErrorLabel{
+    color: #ff0000;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    font-weight: bold;
+}
+
+.changeOtherPasswordUser{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffff;
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 10%;
 }

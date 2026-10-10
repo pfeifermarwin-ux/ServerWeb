@@ -25,7 +25,9 @@ const logInspect = document.getElementById('logInspect');
 const changePassword = document.getElementById('changePassword');
 const changePasswordCancelButton = document.getElementById('changePasswordCancelButton');
 const changePasswordApplyButton = document.getElementById('changePasswordApplyButton');
-
+const changeOtherPasswordCancelButton = document.getElementById('changeOtherPasswordCancelButton');
+const changeOtherPasswordApplyButton = document.getElementById('changeOtherPasswordApplyButton');
+const userManageOverviewHeadPasswordButton = document.getElementById('userManageOverviewHeadPasswordButton');
 
 async function checkTokenValidity() {
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/check_token', {
@@ -233,6 +235,27 @@ async function changeOwnPassword(oldPassword, newPassword) {
     }
 }
 
+async function changeOtherPassword(userToChange, newPassword) {
+    const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/change_password', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({username: username, token: token, new_password: newPassword, userToChange: userToChange})
+    });
+    const data = await response.json();
+    if (response.status === 200){
+        return data
+    }else {
+        let errorDetail = "Unbekannter Serverfehler";
+        try {
+            const data = await response.json();
+            errorDetail = data.detail || JSON.stringify(data);
+        } catch (e) {
+            errorDetail = await response.text();
+        }
+        await openNotification(`Error: ${response.status}`, errorDetail);
+        await checkTokenValidity();
+    }
+}
 
 function openNotification(title, message) {
     return new Promise((resolve) => {
@@ -525,6 +548,57 @@ changePasswordRepeatNewPassword.addEventListener('keypress', () => {
     changePasswordNewPassword.style.border = '#ffffff0a solid 1px';
     changePasswordRepeatNewPassword.style.border = '#ffffff0a solid 1px';
 });
+
+changeOtherPasswordCancelButton.onclick = () => {
+    document.getElementById('changeOtherPasswordNewPassword').textContent = '';
+    document.getElementById('changeOtherPasswordRepeatNewPassword').textContent = '';
+    document.getElementById('changeOtherPasswordUser').textContent = '';
+    changeOtherPassword.style.display = 'none';
+}
+
+function openChangeOtherPassword(username) {
+    changeOtherPassword.style.display = 'flex';
+    document.getElementById('changeOtherPasswordUser').textContent = username;
+}
+
+const changeOtherPasswordNewPassword = document.getElementById('changeOtherPasswordNewPassword');
+const changeOtherPasswordRepeatNewPassword = document.getElementById('changeOtherPasswordRepeatNewPassword');
+const changeOtherPasswordUser = document.getElementById('changeOtherPasswordUser');
+const changeOtherPasswordErrorLabel = document.getElementById('changeOtherPasswordErrorLabel');
+
+changeOtherPasswordApplyButton.onclick = async () => {
+    if (changeOtherPasswordRepeatNewPassword.value === "") {
+        changeOtherPasswordErrorLabel.textContent = 'Please fill in all fields.';
+        changeOtherPasswordRepeatNewPassword.style.borderColor = 'red';
+        changeOtherPasswordRepeatNewPassword.focus();
+    }
+    if (changeOtherPasswordNewPassword.value === "") {
+        changeOtherPasswordErrorLabel.textContent = 'Please fill in all fields.';
+        changeOtherPasswordNewPassword.style.borderColor = 'red';
+        changeOtherPasswordNewPassword.focus();
+    }
+    if (changeOtherPasswordNewPassword.value !== '' && changeOtherPasswordRepeatNewPassword.value !== '') {
+        await changeOtherPassword(changeOtherPasswordUser.textContent, changeOtherPasswordNewPassword.value);
+        const response = changeOtherPassword.style.display = 'none';
+        await openNotification(response.status, response.message)
+    }
+}
+
+changeOtherPasswordNewPassword.addEventListener('keypress', () => {
+    changeOtherPasswordErrorLabel.textContent = '';
+    changeOtherPasswordNewPassword.style.border = '#ffffff0a solid 1px';
+    changeOtherPasswordRepeatNewPassword.style.border = '#ffffff0a solid 1px';
+});
+
+changeOtherPasswordRepeatNewPassword.addEventListener('keypress', () => {
+    changeOtherPasswordErrorLabel.textContent = '';
+    changeOtherPasswordNewPassword.style.border = '#ffffff0a solid 1px';
+    changeOtherPasswordRepeatNewPassword.style.border = '#ffffff0a solid 1px';
+});
+
+userManageOverviewHeadPasswordButton.onclick = () => {
+    openChangeOtherPassword(document.getElementById('userManageOverviewHeadNameDivUsername').textContent)
+}
 
 settingsPopup.addEventListener('click', function(event){
     if (event.target === this){

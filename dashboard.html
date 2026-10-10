@@ -153,7 +153,7 @@
                             </div>
                         </div>
                         <button class="userManageOverviewHeadEditButton"><img src="assets/edit_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" class="userManageOverviewHeadEditButtonIcon"><p class="userManageOverviewHeadEditButtonText">Edit Profile</p></button>
-                        <button class="userManageOverviewHeadPasswordButton"><img src="assets/key_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" class="userManageOverviewHeadPasswordButtonIcon"><p class="userManageOverviewHeadPasswordButtonText">Change Password</p></button>
+                        <button class="userManageOverviewHeadPasswordButton" id="userManageOverviewHeadPasswordButton"><img src="assets/key_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" class="userManageOverviewHeadPasswordButtonIcon"><p class="userManageOverviewHeadPasswordButtonText">Change Password</p></button>
                         <button id="userManageOverviewHeadBlockButton"><img alt="" id="userManageOverviewHeadBlockButtonIcon"><p id="userManageOverviewHeadBlockButtonText"></p></button>
                     </div>
                     <div class="userManageOverviewRow">
@@ -281,6 +281,17 @@
             <label class="changePasswordErrorLabel" id="changePasswordErrorLabel"></label>
             <button class="changePasswordApplyButton" id="changePasswordApplyButton"><p style="margin: auto;">Change Password</p></button>
             <button class="changePasswordCancelButton" id="changePasswordCancelButton"><p style="margin: auto;">Cancel</p></button>
+        </div>
+    </div>
+    <div class="changeOtherPassword" id="changeOtherPassword">
+        <div class="changeOtherPasswordPopup">
+            <p class="changeOtherPasswordTitle">Change Password</p>
+            <p class="changeOtherPasswordUser">For User: <span id="changeOtherPasswordUser"></span></p>
+            <input type="password" class="changeOtherPasswordNewPassword" placeholder="New Password" id="changeOtherPasswordNewPassword">
+            <input type="password" class="changeOtherPasswordRepeatNewPassword" placeholder="Repeat New Password" id="changeOtherPasswordRepeatNewPassword">
+            <label class="changeOtherPasswordErrorLabel" id="changeOtherPasswordErrorLabel"></label>
+            <button class="changeOtherPasswordApplyButton" id="changeOtherPasswordApplyButton"><p style="margin: auto;">Change Password</p></button>
+            <button class="changeOtherPasswordCancelButton" id="changeOtherPasswordCancelButton"><p style="margin: auto;">Cancel</p></button>
         </div>
     </div>
 </body>
