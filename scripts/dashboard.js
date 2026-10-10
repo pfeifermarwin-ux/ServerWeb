@@ -204,7 +204,7 @@ async function unblockUser(uuid) {
 };
 
 async function changeOwnPassword(oldPassword, newPassword) {
-    await fetch('https://ubuntuserver.tail818fdd.ts.net/api/change_password', {
+    const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/change_password', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({username: username, token: token, old_password: oldPassword, new_password: newPassword})
