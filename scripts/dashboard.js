@@ -579,8 +579,11 @@ changeOtherPasswordApplyButton.onclick = async () => {
         changeOtherPasswordNewPassword.focus();
     }
     if (changeOtherPasswordNewPassword.value !== '' && changeOtherPasswordRepeatNewPassword.value !== '') {
-        await changeOtherPasswordFunc(changeOtherPasswordUser.textContent, changeOtherPasswordNewPassword.value);
-        const response = changeOtherPassword.style.display = 'none';
+        const response = await changeOtherPasswordFunc(changeOtherPasswordUser.textContent, changeOtherPasswordNewPassword.value);
+        changeOtherPasswordNewPassword.value = '';
+        changeOtherPasswordRepeatNewPassword.value = '';
+        changeOtherPasswordUser.textContent = '';
+        changeOtherPassword.style.display = 'none';
         await openNotification(response.status, response.message)
     }
 }
