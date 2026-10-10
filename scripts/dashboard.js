@@ -59,6 +59,7 @@ async function logout() {
         window.location.href = '/login';
     }else {
         await openNotification(`Error: ${respone.status}`, data.detail)
+        await checkTokenValidity();
     }
 };
 
@@ -73,6 +74,7 @@ async function getRole() {
         return data.role
     }else {
         await openNotification(`Error: ${response.status}`, data.detail)
+        await checkTokenValidity();
     }
 }
 
@@ -87,6 +89,7 @@ async function getUsers() {
         return data
     }else {
         await openNotification(`Error: ${response.status}`, data.detail)
+        await checkTokenValidity();
     }
 }
 
@@ -112,6 +115,7 @@ async function getUserInfo(useruuid) {
             errorDetail = await response.text();
         }
         await openNotification(`Error: ${response.status}`, errorDetail);
+        await checkTokenValidity();
     }
 }
 
@@ -137,6 +141,7 @@ async function getLogs(uuid) {
             errorDetail = await response.text();
         }
         await openNotification(`Error: ${response.status}`, errorDetail);
+        await checkTokenValidity();
     }
 }
 
@@ -158,6 +163,7 @@ async function getLog(loguuid) {
             errorDetail = await response.text();
         }
         await openNotification(`Error: ${response.status}`, errorDetail);
+        await checkTokenValidity();
     }
 }
 
@@ -179,6 +185,7 @@ async function blockUser(uuid) {
             errorDetail = await response.text();
         }
         await openNotification(`Error: ${response.status}`, errorDetail);
+        await checkTokenValidity();
     }
 };
 
@@ -200,6 +207,7 @@ async function unblockUser(uuid) {
             errorDetail = await response.text();
         }
         await openNotification(`Error: ${response.status}`, errorDetail);
+        await checkTokenValidity();
     }
 };
 
@@ -221,6 +229,7 @@ async function changeOwnPassword(oldPassword, newPassword) {
             errorDetail = await response.text();
         }
         await openNotification(`Error: ${response.status}`, errorDetail);
+        await checkTokenValidity();
     }
 }
 

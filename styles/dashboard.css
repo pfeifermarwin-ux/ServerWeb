@@ -1324,7 +1324,7 @@
 
 .changePassword{
     display: none;
-    display: flex;
+    /* display: flex; */
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
