@@ -23,6 +23,8 @@ const overviewButton = document.getElementById('overviewButton');
 const userManage = document.getElementById('userManage');
 const logInspect = document.getElementById('logInspect');
 const changePassword = document.getElementById('changePassword');
+const changePasswordCancelButton = document.getElementById('changePasswordCancelButton');
+const changePasswordApplyButton = document.getElementById('changePasswordApplyButton');
 
 
 async function checkTokenValidity() {
@@ -200,6 +202,28 @@ async function unblockUser(uuid) {
         await openNotification(`Error: ${response.status}`, errorDetail);
     }
 };
+
+async function changeOwnPassword(oldPassword, newPassword) {
+    await fetch('https://ubuntuserver.tail818fdd.ts.net/api/change_password', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({username: username, token: token, old_password: oldPassword, new_password: newPassword})
+    });
+    const data = await response.json();
+    if (response.status === 200){
+        return data
+    }else {
+        let errorDetail = "Unbekannter Serverfehler";
+        try {
+            const data = await response.json();
+            errorDetail = data.detail || JSON.stringify(data);
+        } catch (e) {
+            errorDetail = await response.text();
+        }
+        await openNotification(`Error: ${response.status}`, errorDetail);
+    }
+}
+
 
 function openNotification(title, message) {
     return new Promise((resolve) => {
@@ -426,6 +450,73 @@ overviewButton.onclick = () => {
     setMainPage("overviewSite")
 };
 
+changePasswordCancelButton.onclick = () => {
+    document.getElementById('changePasswordOldPassword').textContent = '';
+    document.getElementById('changePasswordNewPassword').textContent = '';
+    document.getElementById('changePasswordRepeatNewPassword').textContent = '';
+    changePassword.style.display = 'none';
+};
+
+const changePasswordOldPassword = document.getElementById('changePasswordOldPassword');
+const changePasswordNewPassword = document.getElementById('changePasswordNewPassword');
+const changePasswordRepeatNewPassword = document.getElementById('changePasswordRepeatNewPassword');
+const changePasswordErrorLabel = document.getElementById('changePasswordErrorLabel');
+
+changePasswordApplyButton.onclick = async () => {
+    if (changePasswordRepeatNewPassword.value === "") {
+        changePasswordErrorLabel.textContent = 'Please fill in all fields.';
+        changePasswordRepeatNewPassword.style.borderColor = 'red';
+        changePasswordRepeatNewPassword.focus();
+    }
+    if (changePasswordNewPassword.value === "") {
+        changePasswordErrorLabel.textContent = 'Please fill in all fields.';
+        changePasswordNewPassword.style.borderColor = 'red';
+        changePasswordNewPassword.focus();
+    }
+    if (changePasswordOldPassword.value === "") {
+        changePasswordErrorLabel.textContent = 'Please fill in all fields.';
+        changePasswordOldPassword.style.borderColor = 'red';
+        changePasswordOldPassword.focus();
+    }
+    if (changePasswordOldPassword.value !== '' && changePasswordNewPassword.value !== '' && changePasswordRepeatNewPassword.value !== '') {
+        if (changePasswordNewPassword.value === changePasswordRepeatNewPassword.value){
+            const response = await changeOwnPassword(changePasswordOldPassword.value, changePasswordNewPassword.value);
+            changePassword.style.display = 'none';
+            await openNotification(response.status, response.message)
+            localStorage.setItem('loginStatus', 'false');
+            localStorage.removeItem('username');
+            localStorage.removeItem('token');
+            window.location.href = '/login';
+        }else{
+            changePasswordErrorLabel.textContent = 'Passwords do not match.';
+            changePasswordNewPassword.style.borderColor = 'red';
+            changePasswordRepeatNewPassword.style.borderColor = 'red';
+            changePasswordNewPassword.focus();
+        }
+    }
+};
+
+changePasswordOldPassword.addEventListener('keypress', () => {
+    changePasswordErrorLabel.textContent = '';
+    changePasswordOldPassword.style.border = '#ffffff0a solid 1px';
+    changePasswordNewPassword.style.border = '#ffffff0a solid 1px';
+    changePasswordRepeatNewPassword.style.border = '#ffffff0a solid 1px';
+});
+
+changePasswordNewPassword.addEventListener('keypress', () => {
+    changePasswordErrorLabel.textContent = '';
+    changePasswordOldPassword.style.border = '#ffffff0a solid 1px';
+    changePasswordNewPassword.style.border = '#ffffff0a solid 1px';
+    changePasswordRepeatNewPassword.style.border = '#ffffff0a solid 1px';
+});
+
+changePasswordRepeatNewPassword.addEventListener('keypress', () => {
+    changePasswordErrorLabel.textContent = '';
+    changePasswordOldPassword.style.border = '#ffffff0a solid 1px';
+    changePasswordNewPassword.style.border = '#ffffff0a solid 1px';
+    changePasswordRepeatNewPassword.style.border = '#ffffff0a solid 1px';
+});
+
 settingsPopup.addEventListener('click', function(event){
     if (event.target === this){
         settingsPopup.style.display = 'none';
@@ -441,9 +532,6 @@ site.addEventListener('click', function(event){
     };
     if (event.target == logInspect && logInspect.contains(event.target)){
         logInspect.style.display = 'none';
-    }
-    if (event.target == changePassword && logInspect.contains(event.target)){
-        changePassword.style.display = 'none';
     }
 });
 // loginStatus === 'true''

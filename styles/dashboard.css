@@ -1503,3 +1503,13 @@
 .changePasswordCancelButton:active {
     background-color: #4a5b8c;
 }
+
+.changePasswordErrorLabel{
+    color: #ff0000;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    font-weight: bold;
+}
