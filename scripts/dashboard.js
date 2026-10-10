@@ -28,6 +28,7 @@ const changePasswordApplyButton = document.getElementById('changePasswordApplyBu
 const changeOtherPasswordCancelButton = document.getElementById('changeOtherPasswordCancelButton');
 const changeOtherPasswordApplyButton = document.getElementById('changeOtherPasswordApplyButton');
 const userManageOverviewHeadPasswordButton = document.getElementById('userManageOverviewHeadPasswordButton');
+const changeOtherPassword = document.getElementById('changeOtherPassword');
 
 async function checkTokenValidity() {
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/check_token', {
