@@ -236,7 +236,7 @@ async function changeOwnPassword(oldPassword, newPassword) {
     }
 }
 
-async function changeOtherPassword(userToChange, newPassword) {
+async function changeOtherPasswordFunc(userToChange, newPassword) {
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/change_password', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -579,7 +579,7 @@ changeOtherPasswordApplyButton.onclick = async () => {
         changeOtherPasswordNewPassword.focus();
     }
     if (changeOtherPasswordNewPassword.value !== '' && changeOtherPasswordRepeatNewPassword.value !== '') {
-        await changeOtherPassword(changeOtherPasswordUser.textContent, changeOtherPasswordNewPassword.value);
+        await changeOtherPasswordFunc(changeOtherPasswordUser.textContent, changeOtherPasswordNewPassword.value);
         const response = changeOtherPassword.style.display = 'none';
         await openNotification(response.status, response.message)
     }
