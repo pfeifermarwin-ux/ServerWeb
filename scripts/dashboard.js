@@ -29,6 +29,7 @@ const changeOtherPasswordCancelButton = document.getElementById('changeOtherPass
 const changeOtherPasswordApplyButton = document.getElementById('changeOtherPasswordApplyButton');
 const userManageOverviewHeadPasswordButton = document.getElementById('userManageOverviewHeadPasswordButton');
 const changeOtherPassword = document.getElementById('changeOtherPassword');
+const webAppsButton = document.getElementById('webAppsButton');
 
 async function checkTokenValidity() {
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/check_token', {
@@ -600,6 +601,19 @@ changeOtherPasswordRepeatNewPassword.addEventListener('keypress', () => {
     changeOtherPasswordRepeatNewPassword.style.border = '#ffffff0a solid 1px';
 });
 
+const apps = ["a", "b", "c", "d", "", "", "", ""]
+
+async function renderWebApps() {
+    const response = await fetch("web-app-card.html")
+    const template = await response.text();
+    document.getElementById('webAppsDiv').innerHTML = apps.map(app => template.replaceAll("{{name}}", app)).join("");
+}
+
+webAppsButton.onclick = () => {
+    setMainPage("webAppSite")
+    renderWebApps();
+}
+
 userManageOverviewHeadPasswordButton.onclick = () => {
     openChangeOtherPassword(document.getElementById('userManageOverviewHeadNameDivUsername').textContent)
 }
@@ -624,8 +638,9 @@ site.addEventListener('click', function(event){
 // loginStatus === 'true''
 (async () => {
     if (loginStatus === 'true') {
+        setMainPage("webAppSite")
         await checkTokenValidity();
-        setMainPage("overviewSite")
+        // setMainPage("overviewSite")
         const role = await getRole();
         if (role !== 'ADMIN') {
             siteBarManageUserBTN.style.display = 'none';

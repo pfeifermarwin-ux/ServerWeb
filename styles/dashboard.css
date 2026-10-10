@@ -1670,3 +1670,201 @@
     font-size: 15px;
     margin-bottom: 10%;
 }
+
+.webAppSiteHead{
+    background-color: #2c2f33;
+    width: auto;
+    height: 12%;
+    margin: 1%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.webAppSiteHeadIcon{
+    margin: 1%;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #4a525c;
+    border: rgb(95, 98, 100) solid 1px;
+}
+
+.webAppSiteHeadTitle{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffff;
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 1%;
+    margin-right: auto;
+}
+
+.webAppSiteHeadCard{
+    background-color: #373c41;
+    margin: 1%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    border: #3c4146 solid 1px;
+    width: 10%;
+}
+
+.webAppSiteHeadCardIcon{
+    background-color: #484d52;
+    margin: 10%;
+    padding: 2%;
+    border-radius: 10px;
+    border: #474a4e solid 1px;
+}
+
+.webAppSiteHeadCardText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 15%;
+}
+
+.webAppSiteHeadCardLabel{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #b9b9b9;
+    font-size: 15px;
+}
+
+.webAppSiteHeadAddButton{
+    margin: 2%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    outline: none;
+    border: #5a8ac9 solid 1px;
+    background-color: #4383d6;
+}
+
+.webAppSiteHeadAddButtonIcon{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.webAppSiteHeadAddButtonText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.webAppSiteAppsDiv{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-content: start;
+}
+
+.webAppCard{
+    background-color: #2c2f33;
+    width: auto;
+    height: 200px;
+    border-radius: 10px;
+    border: #36393d solid 1px;
+    display: flex;
+    flex-direction: column;
+    margin: 4%;
+    box-sizing: border-box;
+}
+
+.webAppCardHead{
+    display: flex;
+    flex-direction: row;
+}
+
+.webAppCardHeadIcon{
+    height: 60px;
+    border-radius: 10px;
+    width: 60px;
+    margin: 4%
+}
+
+.webAppCardHeadName{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    margin-top: 4%;
+}
+
+.webAppCardHeadStatusOnline{
+    background-color: #2bff003f;
+    height: 25%;
+    width: 25%;
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: 5%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.webAppCardHeadStatusDot{
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 95%;
+}
+
+.webAppCardHeadStatusTextOnline{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #2bff00;
+    font-size: 10px;
+    margin: auto;
+    text-align: center;
+}
+
+.webAppCardHeadStatusOffline{
+    background-color: #ff00003f;
+    height: 25%;
+    width: 25%;
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: 5%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.webAppCardHeadStatusDot{
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 95%;
+}
+
+.webAppCardHeadStatusTextOffline{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ff0000;
+    font-size: 10px;
+    margin: auto;
+    text-align: center;
+}
+
+.webAppCardUrlButton{
+    margin-top: auto;
+    margin-bottom: 10%;
+    /* width: 80%; */
+    margin-left: 4%;
+    margin-right: 4%;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    background-color: #34373b;
+    outline: none;
+    border: #3f4246 solid 1px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.webAppCardUrlButtonIcon{
+    margin: auto;
+    margin-left: 0;
+    height: 60%;
+}
+
+.webAppCardUrlButtonLabel{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    margin: auto;
+}
