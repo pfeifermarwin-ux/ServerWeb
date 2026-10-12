@@ -1687,6 +1687,13 @@
     padding: 10px;
     background-color: #4a525c;
     border: rgb(95, 98, 100) solid 1px;
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.07), 
+        0 2px 4px rgba(0,0,0,0.07), 
+        0 4px 8px rgba(0,0,0,0.07), 
+        0 8px 16px rgba(0,0,0,0.07),
+        0 16px 32px rgba(0,0,0,0.07), 
+        0 32px 64px rgba(0,0,0,0.07);
 }
 
 .webAppSiteHeadTitle{
@@ -1706,6 +1713,25 @@
     border-radius: 10px;
     border: #3c4146 solid 1px;
     width: 10%;
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.07), 
+        0 2px 4px rgba(0,0,0,0.07), 
+        0 4px 8px rgba(0,0,0,0.07), 
+        0 8px 16px rgba(0,0,0,0.07),
+        0 16px 32px rgba(0,0,0,0.07), 
+        0 32px 64px rgba(0,0,0,0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.webAppSiteHeadCard:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.05), 
+    0 4px 8px rgba(0,0,0,0.05), 
+    0 8px 16px rgba(0,0,0,0.05), 
+    0 16px 32px rgba(0,0,0,0.05),
+    0 32px 64px rgba(0,0,0,0.05), 
+    0 64px 128px rgba(0,0,0,0.05);
 }
 
 .webAppSiteHeadCardIcon{
@@ -1738,7 +1764,21 @@
     outline: none;
     border: #5a8ac9 solid 1px;
     background-color: #4383d6;
+    box-shadow: 
+        1px 1px 0px #1d4ed8,
+        2px 2px 0px #1d4ed8,
+        3px 3px 0px #1d4ed8,
+        4px 4px 0px #1d4ed8,
+        5px 5px 0px #1d4ed8,
+        6px 6px 0px #1d4ed8;
+    transition: all 0.1s ease;
 }
+
+.webAppSiteHeadAddButton:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0px 0px 0px #1d4ed8;
+}
+
 
 .webAppSiteHeadAddButtonIcon{
     margin-top: auto;
@@ -1769,6 +1809,25 @@
     flex-direction: column;
     margin: 4%;
     box-sizing: border-box;
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.07), 
+        0 2px 4px rgba(0,0,0,0.07), 
+        0 4px 8px rgba(0,0,0,0.07), 
+        0 8px 16px rgba(0,0,0,0.07),
+        0 16px 32px rgba(0,0,0,0.07), 
+        0 32px 64px rgba(0,0,0,0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.webAppCard:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.05), 
+    0 4px 8px rgba(0,0,0,0.05), 
+    0 8px 16px rgba(0,0,0,0.05), 
+    0 16px 32px rgba(0,0,0,0.05),
+    0 32px 64px rgba(0,0,0,0.05), 
+    0 64px 128px rgba(0,0,0,0.05);
 }
 
 .webAppCardHead{
@@ -1842,28 +1901,135 @@
 }
 
 .webAppCardUrlButton{
-    margin-top: auto;
-    margin-bottom: 10%;
-    /* width: 80%; */
+    margin-top: 5%;
+    margin-bottom: 3%;
     margin-left: 4%;
     margin-right: 4%;
-    overflow-x: scroll;
-    scrollbar-width: none;
+    width: 92%;
+    min-width: 0;
+    box-sizing: border-box;
     background-color: #34373b;
     outline: none;
     border: #3f4246 solid 1px;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    padding: 8px;
+    overflow: hidden;
 }
 
-.webAppCardUrlButtonIcon{
+.webAppCardUrlButtonIcon,
+.webAppCardUrlButtonIcon2{
+    flex-shrink: 0;
+    height: 18px;
+    width: 18px;
+}
+
+.webAppCardUrlButtonLabel {
+    display: inline-block;
+    width: max-content;
+    white-space: nowrap;
+    font-family: "SFMono-Regular", Consolas,
+        "Liberation Mono", Menlo, Courier, monospace;
+    color: #fff;
+    transform: translateX(0);
+}
+
+.webAppCardUrlTextContainer {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.webAppCardUrlButtonLabel.is-scrolling {
+    animation: urlScroll var(--scroll-duration, 8s) linear infinite;
+}
+
+@keyframes urlScroll {
+    0%, 10% {
+        transform: translateX(0);
+    }
+
+    65%, 85% {
+        transform: translateX(var(--scroll-distance));
+    }
+
+    85.01%, 100% {
+        transform: translateX(0);
+    }
+}
+
+.webAppCardButtonRow {
+    display: flex;
+    flex-direction: row;
+    margin: 1%;
+}
+
+.webAppCardButtonRowOpenButton{
+    border-radius: 5px;
+    outline: none;
+    display: flex;
+    flex-direction: row;
+    border: #5a8ac9 solid 1px;
+    background-color: #2a71cf;
+    margin: 1%;
+    height: 35px;
+    width: 25%;
+}
+
+.webAppCardButtonRowOpenButtonIcon{
+    margin: 8%;
+}
+
+.webAppCardButtonRowOpenButtonText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
     margin: auto;
-    margin-left: 0;
-    height: 60%;
 }
 
-.webAppCardUrlButtonLabel{
+.webAppCardButtonRowEditButton{
+    border-radius: 5px;
+    outline: none;
+    display: flex;
+    flex-direction: row;
+    border: #5a8ac9 solid 1px;
+    background-color: #2a71cf;
+    margin: 1%;
+    height: 35px;
+    width: 25%;
+}
+
+.webAppCardButtonRowEditButtonIcon{
+    margin: 8%;
+}
+
+.webAppCardButtonRowEditButtonText{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    margin: auto;
+}
+
+.webAppCardButtonRowMoreButton{
+    border-radius: 5px;
+    outline: none;
+    display: flex;
+    flex-direction: row;
+    border: #5a8ac9 solid 1px;
+    background-color: #2a71cf;
+    margin: 1%;
+    height: 35px;
+    width: 25%;
+    margin-left: auto;
+}
+
+.webAppCardButtonRowMoreButtonIcon{
+    margin: 8%;
+}
+
+.webAppCardButtonRowMoreButtonText{
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
     color: #ffffff;
     margin: auto;

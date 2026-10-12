@@ -601,12 +601,47 @@ changeOtherPasswordRepeatNewPassword.addEventListener('keypress', () => {
     changeOtherPasswordRepeatNewPassword.style.border = '#ffffff0a solid 1px';
 });
 
+function setupUrlScroll() {
+    document.querySelectorAll(".webAppCardUrlButton").forEach(button => {
+        const container = button.querySelector(".webAppCardUrlTextContainer");
+        const label = button.querySelector(".webAppCardUrlButtonLabel");
+
+        if (!container || !label) return;
+
+        function update() {
+            const distance = label.scrollWidth - container.clientWidth;
+
+            label.classList.remove("is-scrolling");
+
+            if (distance > 0) {
+                label.style.setProperty(
+                    "--scroll-distance",
+                    `-${distance}px`
+                );
+                label.style.animationDuration =
+                    `${Math.max(6, distance / 20 + 4)}s`;
+                void label.offsetWidth;
+                label.classList.add("is-scrolling");
+            } else {
+                label.style.transform = "translateX(0)";
+            }
+        }
+
+        update();
+        new ResizeObserver(update).observe(container);
+    });
+}
+
 const apps = ["a", "b", "c", "d", "", "", "", ""]
 
 async function renderWebApps() {
     const response = await fetch("web-app-card.html")
     const template = await response.text();
     document.getElementById('webAppsDiv').innerHTML = apps.map(app => template.replaceAll("{{name}}", app)).join("");
+    setupUrlScroll();
+    if (await getRole() !== 'ADMIN') {
+        document.getElementById('webAppCardButtonRowEditButton').style.display = 'None';
+    }
 }
 
 webAppsButton.onclick = () => {
