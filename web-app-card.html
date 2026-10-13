@@ -1,13 +1,13 @@
 <div class="webAppCard">
     <div class="webAppCardHead">
-        <img src="assets/logo.png" class="webAppCardHeadIcon">
-        <label class="webAppCardHeadName">Test app</label>
-        <div class="webAppCardHeadStatusOffline">
-            <img src="assets/dot_red.svg" class="webAppCardHeadStatusDot">
-            <label class="webAppCardHeadStatusTextOffline">Offline</label>
+        <img src="{{icon_url}}" class="webAppCardHeadIcon">
+        <label class="webAppCardHeadName">{{app_name}}</label>
+        <div class="{{status_div_class}}">
+            <img src="{{status_img_src}}" class="webAppCardHeadStatusDot">
+            <label class="{{status_label_class}}">{{status_label_text}}</label>
         </div>
     </div>
-    <button class="webAppCardUrlButton"><img src="assets/link_2_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" class="webAppCardUrlButtonIcon"><div class="webAppCardUrlTextContainer"><label class="webAppCardUrlButtonLabel">https://ubuntuserver.tail818fdd.ts.net/dashboard</label></div><img src="assets/open_in_new_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" class="webAppCardUrlButtonIcon2"></button>
+    <button class="webAppCardUrlButton"><img src="assets/link_2_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" class="webAppCardUrlButtonIcon"><div class="webAppCardUrlTextContainer"><label class="webAppCardUrlButtonLabel">{{site_url_label}}</label></div><img src="assets/open_in_new_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" class="webAppCardUrlButtonIcon2"></button>
     <div class="webAppCardButtonRow">
         <button class="webAppCardButtonRowOpenButton"><img src="assets/open_in_new_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" class="webAppCardButtonRowOpenButtonIcon"><label class="webAppCardButtonRowOpenButtonText">Open</label></button>
         <button class="webAppCardButtonRowEditButton" id="webAppCardButtonRowEditButton"><img src="assets/edit_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" class="webAppCardButtonRowEditButtonIcon"><label class="webAppCardButtonRowEditButtonText">Edit</label></button>

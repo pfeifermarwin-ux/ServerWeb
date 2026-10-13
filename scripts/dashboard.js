@@ -259,6 +259,28 @@ async function changeOtherPasswordFunc(userToChange, newPassword) {
     }
 }
 
+async function getWebApps() {
+    const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/get_web_apps', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({username: username, token: token})
+    });
+    const data = await response.json();
+    if (response.status === 200){
+        return data
+    }else {
+        let errorDetail = "Unbekannter Serverfehler";
+        try {
+            const data = await response.json();
+            errorDetail = data.detail || JSON.stringify(data);
+        } catch (e) {
+            errorDetail = await response.text();
+        }
+        await openNotification(`Error: ${response.status}`, errorDetail);
+        await checkTokenValidity();
+    }
+}
+
 function openNotification(title, message) {
     return new Promise((resolve) => {
         notification.style.display = 'flex';
@@ -632,15 +654,86 @@ function setupUrlScroll() {
     });
 }
 
-const apps = ["a", "b", "c", "d", "", "", "", ""]
+// const apps = getWebApps().web_apps
+const apps = ["","","",""]
 
 async function renderWebApps() {
-    const response = await fetch("web-app-card.html")
+    const response = await fetch("web-app-card.html");
     const template = await response.text();
-    document.getElementById('webAppsDiv').innerHTML = apps.map(app => template.replaceAll("{{name}}", app)).join("");
+
+    const webApps = Array.isArray(apps) ? apps : apps.web_apps;
+
+    const cards = await Promise.all(
+        webApps.map(async (app) => {
+            let card = template;
+
+            card = card.replaceAll("{{app_name}}", app.app_name ?? "");
+            card = card.replaceAll(
+                "{{icon_url}}",
+                app.icon_url || "assets/logo.png"
+            );
+            card = card.replaceAll(
+                "{{site_url_label}}",
+                app.site_url ?? ""
+            );
+
+            let online = false;
+
+            if (app.site_url) {
+                try {
+                    const url = /^https?:\/\//i.test(app.site_url)
+                        ? app.site_url
+                        : `https://${app.site_url}`;
+
+                    await fetch(url, {
+                        method: "HEAD",
+                        mode: "no-cors",
+                        cache: "no-store"
+                    });
+
+                    online = true;
+                } catch (error) {
+                    online = false;
+                }
+            }
+
+            card = card.replaceAll(
+                "{{status_div_class}}",
+                online
+                    ? "webAppCardHeadStatusOnline"
+                    : "webAppCardHeadStatusOffline"
+            );
+
+            card = card.replaceAll(
+                "{{status_img_src}}",
+                online ? "assets/dot_green.svg" : "assets/dot_red.svg"
+            );
+
+            card = card.replaceAll(
+                "{{status_label_class}}",
+                online
+                    ? "webAppCardHeadStatusTextOnline"
+                    : "webAppCardHeadStatusTextOffline"
+            );
+
+            card = card.replaceAll(
+                "{{status_label_text}}",
+                online ? "Online" : "Offline"
+            );
+
+            return card;
+        })
+    );
+
+    document.getElementById("webAppsDiv").innerHTML = cards.join("");
+
     setupUrlScroll();
-    if (await getRole() !== 'ADMIN') {
-        document.getElementById('webAppCardButtonRowEditButton').style.display = 'None';
+
+    if (await getRole() !== "ADMIN") {
+        document.querySelectorAll(".webAppCardButtonRowEditButton")
+            .forEach(button => {
+                button.style.display = "none";
+            });
     }
 }
 
