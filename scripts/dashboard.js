@@ -733,6 +733,10 @@ async function renderWebApps() {
                 button.style.display = "none";
             });
     }
+
+    document.getElementById('webAppCardUrlButton').onclick = () => {
+        window.open(app.site_url, '_blank')
+    } 
 }
 
 webAppsButton.onclick = () => {
