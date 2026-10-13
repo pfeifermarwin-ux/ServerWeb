@@ -654,9 +654,8 @@ function setupUrlScroll() {
     });
 }
 
-const apps = getWebApps().web_apps
-
 async function renderWebApps() {
+    const apps = await getWebApps().web_apps
     const response = await fetch("web-app-card.html");
     const template = await response.text();
 
