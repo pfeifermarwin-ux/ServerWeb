@@ -740,6 +740,20 @@ async function renderWebApps() {
                 window.open(url, "_blank", "noopener,noreferrer");
             });
         });
+    webAppsDiv.querySelectorAll(".webAppCardButtonRowOpenButton")
+        .forEach((button, index) => {
+            button.addEventListener("click", () => {
+                let url = webApps[index].site_url;
+
+                if (!url) return;
+
+                if (!/^https?:\/\//i.test(url)) {
+                    url = `https://${url}`;
+                }
+
+                window.open(url, "_blank", "noopener,noreferrer");
+            });
+        });
     if (await getRole() !== "ADMIN") {
         webAppsDiv.querySelectorAll(".webAppCardButtonRowEditButton")
             .forEach(button => {
