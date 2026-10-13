@@ -723,20 +723,29 @@ async function renderWebApps() {
         })
     );
 
-    document.getElementById("webAppsDiv").innerHTML = cards.join("");
-
+    const webAppsDiv = document.getElementById("webAppsDiv");
+    webAppsDiv.innerHTML = cards.join("");
     setupUrlScroll();
+    webAppsDiv.querySelectorAll(".webAppCardUrlButton")
+        .forEach((button, index) => {
+            button.addEventListener("click", () => {
+                let url = webApps[index].site_url;
 
+                if (!url) return;
+
+                if (!/^https?:\/\//i.test(url)) {
+                    url = `https://${url}`;
+                }
+
+                window.open(url, "_blank", "noopener,noreferrer");
+            });
+        });
     if (await getRole() !== "ADMIN") {
-        document.querySelectorAll(".webAppCardButtonRowEditButton")
+        webAppsDiv.querySelectorAll(".webAppCardButtonRowEditButton")
             .forEach(button => {
                 button.style.display = "none";
             });
     }
-
-    document.getElementById('webAppCardUrlButton').onclick = () => {
-        window.open(app.site_url, '_blank')
-    } 
 }
 
 webAppsButton.onclick = () => {
