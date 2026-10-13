@@ -655,7 +655,7 @@ function setupUrlScroll() {
 }
 
 async function renderWebApps() {
-    const apps = await getWebApps().web_apps
+    const apps = await getWebApps()
     const response = await fetch("web-app-card.html");
     const template = await response.text();
 
