@@ -33,6 +33,7 @@ const webAppsButton = document.getElementById('webAppsButton');
 const addWebAppCancelButton = document.getElementById('addWebAppCancelButton');
 const addWebAppIconUploadButton = document.getElementById('addWebAppIconUploadButton');
 const addWebAppInputIconUploadInput = document.getElementById('addWebAppInputIconUploadInput');
+const addWebAppCreateButton = document.getElementById('addWebAppCreateButton');
 
 async function checkTokenValidity() {
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/check_token', {
@@ -292,6 +293,28 @@ async function uploadWebAppIcon(file) {
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/uploadWebAppIcon', {
         method: 'POST',
         body: formData
+    });
+    const data = await response.json();
+    if (response.status === 200){
+        return data
+    }else {
+        let errorDetail = "Unbekannter Serverfehler";
+        try {
+            const data = await response.json();
+            errorDetail = data.detail || JSON.stringify(data);
+        } catch (e) {
+            errorDetail = await response.text();
+        }
+        await openNotification(`Error: ${response.status}`, errorDetail);
+        await checkTokenValidity();
+    }
+}
+
+async function addWebApp(app_name, github_url, site_url, version, release_stage, description, icon_url) {
+    const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/add_new_web_app', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({username: username, token: token, app_name: app_name, github_url: github_url, site_url: site_url, version: version, release_stage: release_stage, description: description, icon_url: icon_url})
     });
     const data = await response.json();
     if (response.status === 200){
@@ -819,6 +842,19 @@ addWebAppInputIconUploadInput.addEventListener('change',async (event) => {
         );
     }
 });
+
+addWebAppCreateButton.onclick = async () => {
+    const name = document.getElementById('addWebAppInputName').value
+    const githubUrl = document.getElementById('addWebAppInputGithubUrl').value
+    const siteUrl = document.getElementById('addWebAppInputSiteUrl').value
+    const version = document.getElementById('addWebAppInputVersion').value
+    const releaseStage = document.getElementById('addWebAppInputReleaseStage').value
+    const description = document.getElementById('addWebAppDescription').value
+    const iconUrl = document.getElementById('addWebAppInputIconUrl').value
+    await addWebApp(name, githubUrl, siteUrl, version, releaseStage, description, iconUrl)
+    document.getElementById('addWebApp').style.display = 'None';
+    webAppsButton.click()
+}
 
 userManageOverviewHeadPasswordButton.onclick = () => {
     openChangeOtherPassword(document.getElementById('userManageOverviewHeadNameDivUsername').textContent)
