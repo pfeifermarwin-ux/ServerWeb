@@ -838,11 +838,13 @@ addWebAppIconUploadButton.onclick = () => {
 addWebAppInputIconUploadInput.addEventListener('change',async (event) => {
     const filesVar = event.target.files[0];
     if (!filesVar) return;
+    document.getElementById('loader').style.display = 'Flex'
     try {
         const response = await uploadWebAppIcon(filesVar)
         console.log(response)
         console.log(response.icon_uuid)
         document.getElementById('addWebAppInputIconUrl').value = `https://ubuntuserver.tail818fdd.ts.net/api/webAppIcon/${response.icon_uuid}`
+        document.getElementById('loader').style.display = 'None';
     }catch (error) {
         console.error("Icon-Upload fehlgeschlagen:", error);
         await openNotification(
@@ -860,9 +862,7 @@ addWebAppCreateButton.onclick = async () => {
     const releaseStage = document.getElementById('addWebAppInputReleaseStage').value
     const description = document.getElementById('addWebAppDescription').value
     const iconUrl = document.getElementById('addWebAppInputIconUrl').value
-    document.getElementById('loader').style.display = 'Flex'
     await addWebApp(name, githubUrl, siteUrl, version, releaseStage, description, iconUrl)
-    document.getElementById('loader').style.display = 'None';
     document.getElementById('addWebApp').style.display = 'None';
     webAppsButton.click()
 }
