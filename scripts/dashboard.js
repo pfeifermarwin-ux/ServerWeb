@@ -707,7 +707,9 @@ function setupUrlScroll() {
 }
 
 async function renderWebApps() {
+    document.getElementById('loader').style.display = 'Flex';
     const apps = await getWebApps()
+    document.getElementById('loader').style.display = 'None';
     const response = await fetch("web-app-card.html");
     const template = await response.text();
     document.getElementById('webAppSiteHeadCardLabelTotal').textContent = 0;
@@ -862,7 +864,16 @@ addWebAppCreateButton.onclick = async () => {
     const releaseStage = document.getElementById('addWebAppInputReleaseStage').value
     const description = document.getElementById('addWebAppDescription').value
     const iconUrl = document.getElementById('addWebAppInputIconUrl').value
+    document.getElementById('loader').style.display = 'Flex'
     await addWebApp(name, githubUrl, siteUrl, version, releaseStage, description, iconUrl)
+    document.getElementById('loader').style.display = 'None';
+    document.getElementById('addWebAppInputName').value = ""
+    document.getElementById('addWebAppInputGithubUrl').value = ""
+    document.getElementById('addWebAppInputSiteUrl').value = ""
+    document.getElementById('addWebAppInputVersion').value = ""
+    document.getElementById('addWebAppInputReleaseStage').value = ""
+    document.getElementById('addWebAppDescription').value = ""
+    document.getElementById('addWebAppInputIconUrl').value = ""
     document.getElementById('addWebApp').style.display = 'None';
     webAppsButton.click()
 }
