@@ -925,6 +925,7 @@ site.addEventListener('click', function(event){
         const role = await getRole();
         if (role !== 'ADMIN') {
             siteBarManageUserBTN.style.display = 'none';
+            webAppSiteHeadAddButton.style.display = 'none'
         };
         siteBarVersionText.textContent = `${version}`
         userNameText.textContent = `${username}`;
