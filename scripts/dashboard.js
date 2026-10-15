@@ -34,6 +34,7 @@ const addWebAppCancelButton = document.getElementById('addWebAppCancelButton');
 const addWebAppIconUploadButton = document.getElementById('addWebAppIconUploadButton');
 const addWebAppInputIconUploadInput = document.getElementById('addWebAppInputIconUploadInput');
 const addWebAppCreateButton = document.getElementById('addWebAppCreateButton');
+const webAppSiteHeadAddButton = document.getElementById('webAppSiteHeadAddButton');
 
 async function checkTokenValidity() {
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/check_token', {
@@ -709,13 +710,15 @@ async function renderWebApps() {
     const apps = await getWebApps()
     const response = await fetch("web-app-card.html");
     const template = await response.text();
-
+    document.getElementById('webAppSiteHeadCardLabelTotal').textContent = 0;
+    document.getElementById('webAppSiteHeadCardLabelOnline').textContent = 0;
+    document.getElementById('webAppSiteHeadCardLabelOffline').textContent = 0;
     const webApps = Array.isArray(apps) ? apps : apps.web_apps;
 
     const cards = await Promise.all(
         webApps.map(async (app) => {
             let card = template;
-
+            document.getElementById('webAppSiteHeadCardLabelTotal').textContent = Number(document.getElementById('webAppSiteHeadCardLabelTotal').textContent) +1;
             card = card.replaceAll("{{app_name}}", app.app_name ?? "");
             card = card.replaceAll(
                 "{{icon_url}}",
@@ -744,6 +747,12 @@ async function renderWebApps() {
                 } catch (error) {
                     online = false;
                 }
+            }
+
+            if (online) {
+                document.getElementById('webAppSiteHeadCardLabelOnline').textContent = Number(document.getElementById('webAppSiteHeadCardLabelOnline').textContent) +1;
+            }else {
+                document.getElementById('webAppSiteHeadCardLabelOffline').textContent = Number(document.getElementById('webAppSiteHeadCardLabelOffline').textContent) +1;
             }
 
             card = card.replaceAll(
@@ -865,6 +874,10 @@ settingsPopup.addEventListener('click', function(event){
         settingsPopup.style.display = 'none';
     }
 });
+
+webAppSiteHeadAddButton.onclick = () => {
+    document.getElementById('addWebApp').style.display = 'Flex';
+}
 
 site.addEventListener('click', function(event){
     if (!dropdown.contains(event.target) && !profileBTN.contains(event.target)){
