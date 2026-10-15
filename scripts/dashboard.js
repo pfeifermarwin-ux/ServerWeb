@@ -30,6 +30,9 @@ const changeOtherPasswordApplyButton = document.getElementById('changeOtherPassw
 const userManageOverviewHeadPasswordButton = document.getElementById('userManageOverviewHeadPasswordButton');
 const changeOtherPassword = document.getElementById('changeOtherPassword');
 const webAppsButton = document.getElementById('webAppsButton');
+const addWebAppCancelButton = document.getElementById('addWebAppCancelButton');
+const addWebAppIconUploadButton = document.getElementById('addWebAppIconUploadButton');
+const addWebAppInputIconUploadInput = document.getElementById('addWebAppInputIconUploadInput');
 
 async function checkTokenValidity() {
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/check_token', {
@@ -264,6 +267,31 @@ async function getWebApps() {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({username: username, token: token})
+    });
+    const data = await response.json();
+    if (response.status === 200){
+        return data
+    }else {
+        let errorDetail = "Unbekannter Serverfehler";
+        try {
+            const data = await response.json();
+            errorDetail = data.detail || JSON.stringify(data);
+        } catch (e) {
+            errorDetail = await response.text();
+        }
+        await openNotification(`Error: ${response.status}`, errorDetail);
+        await checkTokenValidity();
+    }
+}
+
+async function uploadWebAppIcon(file) {
+    const formData = new FormData();
+    formData.append("username", username);
+    formData.append("token", token);
+    formData.append("file", file);
+    const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/uploadWebAppIcon', {
+        method: 'POST',
+        body: formData
     });
     const data = await response.json();
     if (response.status === 200){
@@ -767,6 +795,31 @@ webAppsButton.onclick = () => {
     renderWebApps();
 }
 
+addWebAppCancelButton.onclick = () => {
+    document.getElementById('addWebApp').style.display = 'None';
+}
+
+addWebAppIconUploadButton.onclick = () => {
+    addWebAppInputIconUploadInput.click()
+}
+
+addWebAppInputIconUploadInput.addEventListener('change',async (event) => {
+    const filesVar = event.target.files[0];
+    if (!file) return;
+    try {
+        const response = await uploadWebAppIcon(filesVar)
+        if (response?.icon_uuid) {
+            document.getElementById('addWebAppInputIconUrl').textContent = `https://ubuntuserver.tail818fdd.ts.net/api/webAppIcon/${respone.icon_uuid}`
+        }
+    }catch (errors) {
+        console.error("Icon-Upload fehlgeschlagen:", error);
+        await openNotification(
+            "Upload-Fehler",
+            error.message || "Das Icon konnte nicht hochgeladen werden."
+        );
+    }
+});
+
 userManageOverviewHeadPasswordButton.onclick = () => {
     openChangeOtherPassword(document.getElementById('userManageOverviewHeadNameDivUsername').textContent)
 }
@@ -791,9 +844,8 @@ site.addEventListener('click', function(event){
 // loginStatus === 'true''
 (async () => {
     if (loginStatus === 'true') {
-        setMainPage("webAppSite")
         await checkTokenValidity();
-        // setMainPage("overviewSite")
+        setMainPage("overviewSite")
         const role = await getRole();
         if (role !== 'ADMIN') {
             siteBarManageUserBTN.style.display = 'none';

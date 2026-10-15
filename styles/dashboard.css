@@ -2034,3 +2034,198 @@
     color: #ffffff;
     margin: auto;
 }
+
+.addWebApp{
+    display: none;
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);    
+}
+
+.addWebAppPopup{
+    background-color: #031121;
+    width: 25%;
+    height: 75%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1%;
+    border: #ffffff0a solid 1px;
+    animation: addWebAppEnter 0.2s ease-out;
+}
+
+.addWebAppTitle{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    font-size: 20px;
+    margin: 5%;
+}
+
+.addWebAppTitle::after {
+    content: "Register a new web application";
+    display: block;
+
+    margin-top: 9px;
+
+    color: #8999a8;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.addWebAppPopup input:not(.addWebAppInputIconUrl) {
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: #0a233f;
+    border: #ffffff18 solid 1px;
+    outline: none;
+    height: 5%;
+    border-radius: 5px;
+    margin-bottom: 1%;
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.07), 
+        0 2px 4px rgba(0,0,0,0.07), 
+        0 4px 8px rgba(0,0,0,0.07), 
+        0 8px 16px rgba(0,0,0,0.07),
+        0 16px 32px rgba(0,0,0,0.07), 
+        0 32px 64px rgba(0,0,0,0.07);
+    color: #e2e8f0;
+    padding-left: 2%;
+}
+
+.addWebAppPopup input::placeholder {
+    margin: 10%;
+}
+
+.addWebAppPopup textarea {
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: #0a233f;
+    border: #ffffff18 solid 1px;
+    outline: none;
+    height: 12%;
+    padding: 2%;
+    border-radius: 5px;
+    margin-bottom: 1%;
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.07), 
+        0 2px 4px rgba(0,0,0,0.07), 
+        0 4px 8px rgba(0,0,0,0.07), 
+        0 8px 16px rgba(0,0,0,0.07),
+        0 16px 32px rgba(0,0,0,0.07), 
+        0 32px 64px rgba(0,0,0,0.07);
+    color: #e2e8f0;
+}
+
+.addWebAppIconUrlDiv{
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 5%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15%;
+}
+
+.addWebAppInputIconUrl{
+    background-color: #0a233f;
+    border: #ffffff18 solid 1px;
+    outline: none;
+    border-radius: 5px;
+    width: 74%;
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.07), 
+        0 2px 4px rgba(0,0,0,0.07), 
+        0 4px 8px rgba(0,0,0,0.07), 
+        0 8px 16px rgba(0,0,0,0.07),
+        0 16px 32px rgba(0,0,0,0.07),
+        0 32px 64px rgba(0,0,0,0.07);
+    color: #e2e8f0;
+    padding-left: 2%;
+}
+
+.addWebAppIconUploadButton{
+    background-color: #153558;
+    border: #ffffff18 solid 1px;
+    outline: none;
+    border-radius: 5px;
+    margin-left: auto;
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.07), 
+        0 2px 4px rgba(0,0,0,0.07), 
+        0 4px 8px rgba(0,0,0,0.07), 
+        0 8px 16px rgba(0,0,0,0.07),
+        0 16px 32px rgba(0,0,0,0.07),
+        0 32px 64px rgba(0,0,0,0.07);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+}
+
+.addWebAppCreateButton{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 5%;
+    border-radius: 5px;
+    outline: none;
+    background-color: #0b7af0;
+    border: #ffffff18 solid 1px;
+    margin-bottom: 1%;
+}
+
+.addWebAppCancelButton{
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    color: #ffffff;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 5%;
+    border-radius: 5px;
+    outline: none;
+    background-color: #153558;
+    border: #ffffff18 solid 1px;
+    margin-bottom: 1%;
+}
+
+@keyframes addWebAppEnter {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.addWebAppPopup input:hover,
+.addWebAppPopup textarea:hover {
+    border-color: #ffffff41;
+}
+
+.addWebAppPopup input:focus,
+.addWebAppPopup textarea:focus {
+    background: #0d2433;
+    border-color: #1685ff;
+
+    box-shadow: 0 0 0 3px rgba(22, 133, 255, 0.12);
+}
+
+.addWebAppPopup {
+    scrollbar-width: thin;
+    scrollbar-color: #294655 transparent;
+}
+
+.addWebAppPopup::-webkit-scrollbar {
+    width: 6px;
+}
+
+.addWebAppPopup::-webkit-scrollbar-thumb {
+    background: #294655;
+    border-radius: 8px;
+}
