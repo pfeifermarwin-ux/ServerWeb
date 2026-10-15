@@ -808,10 +808,7 @@ addWebAppInputIconUploadInput.addEventListener('change',async (event) => {
     if (!filesVar) return;
     try {
         const response = await uploadWebAppIcon(filesVar)
-        console.log(response)
-        if (response?.icon_uuid) {
-            document.getElementById('addWebAppInputIconUrl').textContent = `https://ubuntuserver.tail818fdd.ts.net/api/webAppIcon/${response.icon_uuid}`
-        }
+        document.getElementById('addWebAppInputIconUrl').textContent = `https://ubuntuserver.tail818fdd.ts.net/api/webAppIcon/${response.icon_uuid}`
     }catch (error) {
         console.error("Icon-Upload fehlgeschlagen:", error);
         await openNotification(
