@@ -860,7 +860,9 @@ addWebAppCreateButton.onclick = async () => {
     const releaseStage = document.getElementById('addWebAppInputReleaseStage').value
     const description = document.getElementById('addWebAppDescription').value
     const iconUrl = document.getElementById('addWebAppInputIconUrl').value
+    document.getElementById('loader').style.display = 'Flex'
     await addWebApp(name, githubUrl, siteUrl, version, releaseStage, description, iconUrl)
+    document.getElementById('loader').style.display = 'None';
     document.getElementById('addWebApp').style.display = 'None';
     webAppsButton.click()
 }
