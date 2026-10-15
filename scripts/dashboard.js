@@ -128,7 +128,6 @@ async function getUserInfo(useruuid) {
     }else {
         let errorDetail = "Unbekannter Serverfehler";
         try {
-            const data = await response.json();
             errorDetail = data.detail || JSON.stringify(data);
         } catch (e) {
             errorDetail = await response.text();
@@ -156,7 +155,6 @@ async function getLogs(uuid) {
     }else {
         let errorDetail = "Unbekannter Serverfehler";
         try {
-            const data = await response.json();
             errorDetail = data.detail || JSON.stringify(data);
         } catch (e) {
             errorDetail = await response.text();
@@ -180,7 +178,6 @@ async function getLog(loguuid) {
     }else {
         let errorDetail = "Unbekannter Serverfehler";
         try {
-            const data = await response.json();
             errorDetail = data.detail || JSON.stringify(data);
         } catch (e) {
             errorDetail = await response.text();
@@ -204,7 +201,6 @@ async function blockUser(uuid) {
     }else {
         let errorDetail = "Unbekannter Serverfehler";
         try {
-            const data = await response.json();
             errorDetail = data.detail || JSON.stringify(data);
         } catch (e) {
             errorDetail = await response.text();
@@ -228,7 +224,6 @@ async function unblockUser(uuid) {
     }else {
         let errorDetail = "Unbekannter Serverfehler";
         try {
-            const data = await response.json();
             errorDetail = data.detail || JSON.stringify(data);
         } catch (e) {
             errorDetail = await response.text();
@@ -252,7 +247,6 @@ async function changeOwnPassword(oldPassword, newPassword) {
     }else {
         let errorDetail = "Unbekannter Serverfehler";
         try {
-            const data = await response.json();
             errorDetail = data.detail || JSON.stringify(data);
         } catch (e) {
             errorDetail = await response.text();
@@ -276,7 +270,6 @@ async function changeOtherPasswordFunc(userToChange, newPassword) {
     }else {
         let errorDetail = "Unbekannter Serverfehler";
         try {
-            const data = await response.json();
             errorDetail = data.detail || JSON.stringify(data);
         } catch (e) {
             errorDetail = await response.text();
@@ -300,7 +293,6 @@ async function getWebApps() {
     }else {
         let errorDetail = "Unbekannter Serverfehler";
         try {
-            const data = await response.json();
             errorDetail = data.detail || JSON.stringify(data);
         } catch (e) {
             errorDetail = await response.text();
@@ -327,7 +319,6 @@ async function uploadWebAppIcon(file) {
     }else {
         let errorDetail = "Unbekannter Serverfehler";
         try {
-            const data = await response.json();
             errorDetail = data.detail || JSON.stringify(data);
         } catch (e) {
             errorDetail = await response.text();
