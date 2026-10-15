@@ -805,7 +805,7 @@ addWebAppIconUploadButton.onclick = () => {
 
 addWebAppInputIconUploadInput.addEventListener('change',async (event) => {
     const filesVar = event.target.files[0];
-    if (!file) return;
+    if (!filesVar) return;
     try {
         const response = await uploadWebAppIcon(filesVar)
         if (response?.icon_uuid) {
