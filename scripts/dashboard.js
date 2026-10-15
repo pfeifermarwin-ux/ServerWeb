@@ -351,7 +351,6 @@ async function addWebApp(app_name, github_url, site_url, version, release_stage,
     }else {
         let errorDetail = "Unbekannter Serverfehler";
         try {
-            const data = await response.json();
             errorDetail = data.detail || JSON.stringify(data);
         } catch (e) {
             errorDetail = await response.text();
