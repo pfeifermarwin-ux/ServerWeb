@@ -37,12 +37,14 @@ const addWebAppCreateButton = document.getElementById('addWebAppCreateButton');
 const webAppSiteHeadAddButton = document.getElementById('webAppSiteHeadAddButton');
 
 async function checkTokenValidity() {
+    document.getElementById('loader').style.display = 'Flex';
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/check_token', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ username: username, token: token}),
     });
     const data = await response.json();
+    document.getElementById('loader').style.display = 'None';
     if (response.status == 200){
         localStorage.setItem('loginStatus', 'true');
     }else {
@@ -55,12 +57,14 @@ async function checkTokenValidity() {
 };
 
 async function logout() {
+    document.getElementById('loader').style.display = 'Flex';
     const respone = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/logout', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({token: token})
     });
     const data = await respone.json();
+    document.getElementById('loader').style.display = 'None';
     if (respone.status == 200){
         localStorage.setItem('loginStatus', 'false');
         localStorage.removeItem('username');
@@ -73,12 +77,14 @@ async function logout() {
 };
 
 async function getRole() {
+    document.getElementById('loader').style.display = 'Flex';
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/get_role', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({username: username,token: token})
     });
     const data= await response.json();
+    document.getElementById('loader').style.display = 'None';
     if (response.status == 200){
         return data.role
     }else {
@@ -88,12 +94,14 @@ async function getRole() {
 }
 
 async function getUsers() {
+    document.getElementById('loader').style.display = 'Flex';
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/get_users', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({username: username,token: token})
     });
     const data = await response.json();
+    document.getElementById('loader').style.display = 'None';
     if (response.status == 200){
         return data
     }else {
@@ -103,6 +111,7 @@ async function getUsers() {
 }
 
 async function getUserInfo(useruuid) {
+    document.getElementById('loader').style.display = 'Flex';
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/get_user_info', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -113,6 +122,7 @@ async function getUserInfo(useruuid) {
         })
     });
     const data = await response.json();
+    document.getElementById('loader').style.display = 'None';
     if (response.status == 200){
         return data
     }else {
@@ -129,6 +139,7 @@ async function getUserInfo(useruuid) {
 }
 
 async function getLogs(uuid) {
+    document.getElementById('loader').style.display = 'Flex';
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/getUserLogs', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -139,6 +150,7 @@ async function getLogs(uuid) {
         })
     });
     const data = await response.json();
+    document.getElementById('loader').style.display = 'None';
     if (response.status === 200){
         return data
     }else {
@@ -155,12 +167,14 @@ async function getLogs(uuid) {
 }
 
 async function getLog(loguuid) {
+    document.getElementById('loader').style.display = 'Flex';
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/get_log_by_loguuid', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({loguuid: loguuid, username: username, token: token})
     });
     const data = await response.json();
+    document.getElementById('loader').style.display = 'None';
     if (response.status === 200){
         return data
     }else {
@@ -177,12 +191,14 @@ async function getLog(loguuid) {
 }
 
 async function blockUser(uuid) {
+    document.getElementById('loader').style.display = 'Flex';
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/block_user', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({useruuidToBlock: uuid, username: username, token: token})
     });
     const data = await response.json();
+    document.getElementById('loader').style.display = 'None';
     if (response.status === 200){
         return
     }else {
@@ -199,12 +215,14 @@ async function blockUser(uuid) {
 };
 
 async function unblockUser(uuid) {
+    document.getElementById('loader').style.display = 'Flex';
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/unblock_user', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({useruuidToUnblock: uuid, username: username, token: token})
     });
     const data = await response.json();
+    document.getElementById('loader').style.display = 'None';
     if (response.status === 200){
         return
     }else {
@@ -221,12 +239,14 @@ async function unblockUser(uuid) {
 };
 
 async function changeOwnPassword(oldPassword, newPassword) {
+    document.getElementById('loader').style.display = 'Flex';
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/change_password', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({username: username, token: token, old_password: oldPassword, new_password: newPassword})
     });
     const data = await response.json();
+    document.getElementById('loader').style.display = 'None';
     if (response.status === 200){
         return data
     }else {
@@ -243,12 +263,14 @@ async function changeOwnPassword(oldPassword, newPassword) {
 }
 
 async function changeOtherPasswordFunc(userToChange, newPassword) {
+    document.getElementById('loader').style.display = 'Flex';
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/change_password', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({username: username, token: token, new_password: newPassword, userToChange: userToChange})
     });
     const data = await response.json();
+    document.getElementById('loader').style.display = 'None';
     if (response.status === 200){
         return data
     }else {
@@ -265,12 +287,14 @@ async function changeOtherPasswordFunc(userToChange, newPassword) {
 }
 
 async function getWebApps() {
+    document.getElementById('loader').style.display = 'Flex';
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/get_web_apps', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({username: username, token: token})
     });
     const data = await response.json();
+    document.getElementById('loader').style.display = 'None';
     if (response.status === 200){
         return data
     }else {
@@ -287,6 +311,7 @@ async function getWebApps() {
 }
 
 async function uploadWebAppIcon(file) {
+    document.getElementById('loader').style.display = 'Flex';
     const formData = new FormData();
     formData.append("username", username);
     formData.append("token", token);
@@ -296,6 +321,7 @@ async function uploadWebAppIcon(file) {
         body: formData
     });
     const data = await response.json();
+    document.getElementById('loader').style.display = 'None';
     if (response.status === 200){
         return data
     }else {
@@ -312,12 +338,14 @@ async function uploadWebAppIcon(file) {
 }
 
 async function addWebApp(app_name, github_url, site_url, version, release_stage, description, icon_url) {
+    document.getElementById('loader').style.display = 'Flex';
     const response = await fetch('https://ubuntuserver.tail818fdd.ts.net/api/add_new_web_app', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({username: username, token: token, app_name: app_name, github_url: github_url, site_url: site_url, version: version, release_stage: release_stage, description: description, icon_url: icon_url})
     });
     const data = await response.json();
+    document.getElementById('loader').style.display = 'None';
     if (response.status === 200){
         return data
     }else {
@@ -707,9 +735,7 @@ function setupUrlScroll() {
 }
 
 async function renderWebApps() {
-    document.getElementById('loader').style.display = 'Flex';
     const apps = await getWebApps()
-    document.getElementById('loader').style.display = 'None';
     const response = await fetch("web-app-card.html");
     const template = await response.text();
     document.getElementById('webAppSiteHeadCardLabelTotal').textContent = 0;
@@ -840,13 +866,11 @@ addWebAppIconUploadButton.onclick = () => {
 addWebAppInputIconUploadInput.addEventListener('change',async (event) => {
     const filesVar = event.target.files[0];
     if (!filesVar) return;
-    document.getElementById('loader').style.display = 'Flex'
     try {
         const response = await uploadWebAppIcon(filesVar)
         console.log(response)
         console.log(response.icon_uuid)
         document.getElementById('addWebAppInputIconUrl').value = `https://ubuntuserver.tail818fdd.ts.net/api/webAppIcon/${response.icon_uuid}`
-        document.getElementById('loader').style.display = 'None';
     }catch (error) {
         console.error("Icon-Upload fehlgeschlagen:", error);
         await openNotification(
