@@ -754,9 +754,6 @@ async function renderWebApps() {
                     const url = /^https?:\/\//i.test(app.site_url)
                         ? app.site_url
                         : `https://${app.site_url}`;
-                    
-                    console.log("App URL aus Datenbank:", app.site_url);
-                    console.log("URL für fetch:", url);
 
                     await fetch(url, {
                         method: "HEAD",
